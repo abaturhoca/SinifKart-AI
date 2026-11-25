@@ -9,12 +9,15 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.InputType
+import android.util.Size
 import android.view.ViewGroup
 import android.view.WindowInsets
 import android.widget.*
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.*
+import androidx.camera.core.resolutionselector.ResolutionSelector
+import androidx.camera.core.resolutionselector.ResolutionStrategy
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
@@ -36,20 +39,38 @@ class ScannerActivity : ComponentActivity() {
     private val executor = Executors.newSingleThreadExecutor()
     private val netExecutor = Executors.newSingleThreadExecutor()
     private val mainHandler = Handler(Looper.getMainLooper())
-    private val detector by lazy { ArucoDetector(Objdetect.getPredefinedDictionary(Objdetect.DICT_4X4_250)) }
+
+    private val detector by lazy {
+        val params = DetectorParameters()
+        params.set_minMarkerPerimeterRate(0.008)
+        params.set_maxMarkerPerimeterRate(4.0)
+        params.set_adaptiveThreshWinSizeMin(3)
+        params.set_adaptiveThreshWinSizeMax(23)
+        params.set_adaptiveThreshWinSizeStep(4)
+        params.set_adaptiveThreshConstant(7.0)
+        params.set_polygonalApproxAccuracyRate(0.05)
+        params.set_cornerRefinementMethod(Objdetect.CORNER_REFINE_SUBPIX)
+        params.set_errorCorrectionRate(0.8)
+        ArucoDetector(Objdetect.getPredefinedDictionary(Objdetect.DICT_4X4_250), params)
+    }
+    private val qrDetector by lazy { QRCodeDetector() }
+
     private var openCvReady = false
     private var token = "00000000000000000000000000000001"
     private var cards = (1..100).toSet()
     private var options = "ABCD"
     private var roomCode = ""
     private var provider: ProcessCameraProvider? = null
+    private var boundCamera: Camera? = null
+    private var torchOn = false
     private val sentAnswers = mutableMapOf<Int, String>()
+    private var frameCounter = 0
 
     private val heartbeatTask = object : Runnable {
         override fun run() {
             if (roomCode.isNotEmpty() && !isDestroyed) {
                 sendRoomEvent(JSONObject().put("type", "heartbeat").put("device", "Android APK"))
-                mainHandler.postDelayed(this, 15000)
+                mainHandler.postDelayed(this, 12000)
             }
         }
     }
@@ -91,59 +112,67 @@ class ScannerActivity : ComponentActivity() {
 
     private fun dp(v: Int): Int = (v * resources.displayMetrics.density).roundToInt()
 
+    private fun pairWithRoom(code: String) {
+        roomCode = code
+        cards = (1..100).toSet()
+        options = "ABCD"
+        sentAnswers.clear()
+        runOnUiThread {
+            roomInput.setText(code)
+            status.text = "Web odasına bağlandı ($code)! Kartları kameraya tutun."
+        }
+        sendRoomEvent(JSONObject().put("type", "hello").put("device", "Android APK"))
+        mainHandler.removeCallbacks(heartbeatTask)
+        mainHandler.postDelayed(heartbeatTask, 12000)
+    }
+
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(Color.parseColor("#0F172A"))
             fitsSystemWindows = true
-            setPadding(dp(12), dp(48), dp(12), dp(12))
+            setPadding(dp(10), dp(44), dp(10), dp(10))
         }
         if (Build.VERSION.SDK_INT >= 30) {
             root.setOnApplyWindowInsetsListener { v, insets ->
                 val bars = insets.getInsets(WindowInsets.Type.systemBars())
-                v.setPadding(dp(12), max(bars.top, dp(36)) + dp(10), dp(12), bars.bottom + dp(8))
+                v.setPadding(dp(10), max(bars.top, dp(32)) + dp(8), dp(10), bars.bottom + dp(8))
                 insets
             }
         }
 
         val title = TextView(this).apply {
-            text = "SınıfKart AI · Android Tarayıcı"
-            textSize = 18f
+            text = "SınıfKart AI · HD Tarayıcı"
+            textSize = 17f
             setTextColor(Color.WHITE)
-            setPadding(0, 0, 0, dp(8))
+            setPadding(0, 0, 0, dp(6))
         }
         root.addView(title)
 
+        // Row 1: Room code + Connect
         val pairRow = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
         roomInput = EditText(this).apply {
-            hint = "Web Oda Kodu (Örn: SK4829)"
+            hint = "Oda Kodu (veya QR okutun)"
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
             setTextColor(Color.WHITE)
             setHintTextColor(Color.parseColor("#94A3B8"))
             setBackgroundColor(Color.parseColor("#1E293B"))
-            setPadding(dp(10), dp(8), dp(10), dp(8))
+            setPadding(dp(8), dp(6), dp(8), dp(6))
             layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
         }
         val btnConnect = Button(this).apply {
-            text = "Web'e Bağlan"
+            text = "Bağlan"
             setOnClickListener {
                 val code = roomInput.text.toString().trim().uppercase()
                 if (!code.matches(Regex("SK[0-9]{4}"))) {
-                    status.text = "Geçerli oda kodu girin (Örn: SK4829)"
+                    status.text = "Geçerli kod girin (SK1234) veya kamerayı QR koda tutun."
                     return@setOnClickListener
                 }
-                roomCode = code
-                cards = (1..100).toSet()
-                options = "ABCD"
-                sentAnswers.clear()
-                sendRoomEvent(JSONObject().put("type", "hello").put("device", "Android APK"))
-                mainHandler.removeCallbacks(heartbeatTask)
-                mainHandler.postDelayed(heartbeatTask, 15000)
-                status.text = "Web odasına bağlandı ($roomCode). Kamera açılıyor..."
+                pairWithRoom(code)
                 ensureCameraAndStart()
             }
         }
@@ -151,34 +180,42 @@ class ScannerActivity : ComponentActivity() {
         pairRow.addView(btnConnect)
         root.addView(pairRow)
 
-        val btnRow = LinearLayout(this).apply {
+        // Row 2: Zoom 1x / 2x / 3x + Torch + Reset
+        val ctrlRow = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
-        val btnCam = Button(this).apply {
-            text = "Kamerayı Aç"
-            layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-            setOnClickListener { ensureCameraAndStart() }
+        for (z in listOf(1f, 2f, 3f)) {
+            ctrlRow.addView(Button(this).apply {
+                text = "${z.toInt()}x"
+                layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
+                setOnClickListener { boundCamera?.cameraControl?.setZoomRatio(z) }
+            })
         }
-        val btnOpen = Button(this).apply {
-            text = "Oturum JSON"
-            layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
+        ctrlRow.addView(Button(this).apply {
+            text = "Fener"
+            layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.2f)
+            setOnClickListener {
+                torchOn = !torchOn
+                boundCamera?.cameraControl?.enableTorch(torchOn)
+            }
+        })
+        ctrlRow.addView(Button(this).apply {
+            text = "JSON"
+            layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.2f)
             setOnClickListener { open.launch(arrayOf("application/json", "text/plain")) }
-        }
-        val btnExport = Button(this).apply {
-            text = "Dışa Aktar"
-            layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
+        })
+        ctrlRow.addView(Button(this).apply {
+            text = "Kaydet"
+            layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.2f)
             setOnClickListener { if (token.isNotEmpty()) save.launch("Cevap-" + token.take(8) + ".json") }
-        }
-        btnRow.addView(btnCam)
-        btnRow.addView(btnOpen)
-        btnRow.addView(btnExport)
-        root.addView(btnRow)
+        })
+        root.addView(ctrlRow)
 
         status = TextView(this).apply {
-            setTextColor(Color.parseColor("#E2E8F0"))
+            setTextColor(Color.parseColor("#86EFAC"))
             textSize = 14f
-            setPadding(dp(4), dp(8), dp(4), dp(8))
+            setPadding(dp(4), dp(6), dp(4), dp(6))
         }
         root.addView(status)
 
@@ -189,12 +226,17 @@ class ScannerActivity : ComponentActivity() {
         db = openOrCreateDatabase("sinifkart", MODE_PRIVATE, null)
         db.execSQL("CREATE TABLE IF NOT EXISTS votes(token TEXT,card INTEGER,answer TEXT,PRIMARY KEY(token,card))")
         openCvReady = OpenCVLoader.initLocal()
-        status.text = if (openCvReady) "Hazır. Web oda kodunu girin veya Kamerayı Aç'a dokunun." else "OpenCV yüklenemedi."
+        if (openCvReady) {
+            status.text = "Kamera açılıyor... Ekrandaki QR koda tutun veya oda kodu girin."
+            ensureCameraAndStart()
+        } else {
+            status.text = "OpenCV yüklenemedi."
+        }
     }
 
     private fun ensureCameraAndStart() {
         if (!openCvReady) {
-            status.text = "OpenCV yüklenemedi. Tarama başlatılamıyor."
+            status.text = "OpenCV yüklenemedi."
         } else if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             startCamera()
         } else {
@@ -222,52 +264,64 @@ class ScannerActivity : ComponentActivity() {
     }
 
     private fun startCamera() {
-        if (!openCvReady) {
-            status.text = "OpenCV yüklenemedi. Tarama başlatılamıyor."
-            return
-        }
+        if (!openCvReady) return
         val future = ProcessCameraProvider.getInstance(this)
-        val key = token; val assigned = cards; val allowed = options
+        val key = token
         future.addListener({
-            if (key != token || isDestroyed) return@addListener
+            if (isDestroyed) return@addListener
             try {
-                val camera = future.get()
-                provider = camera
-                camera.unbindAll()
+                val cameraProvider = future.get()
+                provider = cameraProvider
+                cameraProvider.unbindAll()
                 val view = Preview.Builder().build().also { it.setSurfaceProvider(preview.surfaceProvider) }
-                val analysis = ImageAnalysis.Builder().setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST).build()
+                val resSelector = ResolutionSelector.Builder()
+                    .setResolutionStrategy(ResolutionStrategy(Size(1920, 1080), ResolutionStrategy.FALLBACK_RULE_CLOSEST_HIGHER_THEN_LOWER))
+                    .build()
+                val analysis = ImageAnalysis.Builder()
+                    .setResolutionSelector(resSelector)
+                    .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                    .build()
                 var previous = emptyMap<Int, Pair<String, Int>>()
                 analysis.setAnalyzer(executor) { frame ->
                     try {
-                        val seen = readFrame(frame, assigned, allowed)
+                        val t0 = System.nanoTime()
+                        val seen = readFrame(frame, cards, options)
+                        val ms = (System.nanoTime() - t0) / 1_000_000L
                         var lastConfirmed = ""
                         previous = seen.mapValues { (id, a) ->
                             val old = previous[id]
                             val streak = if (old?.first == a) old.second + 1 else 1
-                            if (streak == 3) {
+                            val isNew = !sentAnswers.containsKey(id)
+                            // 1 frame instant confirm for first read; 2 frames for answer change
+                            if ((isNew && streak >= 1) || (!isNew && streak == 2)) {
                                 db.execSQL("INSERT OR REPLACE INTO votes VALUES(?,?,?)", arrayOf(key, id, a))
-                                if (roomCode.isNotEmpty() && sentAnswers[id] != a) {
+                                if (sentAnswers[id] != a) {
                                     sentAnswers[id] = a
-                                    sendRoomEvent(JSONObject().put("type", "scan").put("cardId", id).put("answer", a))
+                                    if (roomCode.isNotEmpty()) {
+                                        sendRoomEvent(JSONObject().put("type", "scan").put("cardId", id).put("answer", a))
+                                    }
+                                    lastConfirmed = "✓ Kart #$id -> $a (${ms}ms)"
                                 }
-                                lastConfirmed = "Onaylandı: Kart #$id -> $a"
                             }
                             Pair(a, streak)
                         }
                         runOnUiThread {
-                            if (key == token) {
-                                val roomTag = if (roomCode.isNotEmpty()) " [$roomCode]" else ""
-                                status.text = if (lastConfirmed.isNotEmpty()) "$lastConfirmed$roomTag" else "Karede kart: ${seen.size} | Onaylı: ${sentAnswers.size}$roomTag"
+                            val roomTag = if (roomCode.isNotEmpty()) "[$roomCode Bağlı]" else "[QR Koda Tutun]"
+                            status.text = if (lastConfirmed.isNotEmpty()) {
+                                "$lastConfirmed | Toplam: ${sentAnswers.size} $roomTag"
+                            } else {
+                                "HD ${frame.width}x${frame.height} (${ms}ms) | Kare: ${seen.size} | Toplam: ${sentAnswers.size} $roomTag"
                             }
                         }
-                    } catch (e: Exception) {
-                        runOnUiThread { status.text = "Kare işlenemedi." }
+                    } catch (_: Exception) {
                     } finally {
                         frame.close()
                     }
                 }
-                camera.bindToLifecycle(this, CameraSelector.DEFAULT_BACK_CAMERA, view, analysis)
-            } catch (e: Exception) { status.text = "Arka kamera başlatılamadı." }
+                boundCamera = cameraProvider.bindToLifecycle(this, CameraSelector.DEFAULT_BACK_CAMERA, view, analysis)
+            } catch (e: Exception) {
+                status.text = "Arka kamera başlatılamadı."
+            }
         }, ContextCompat.getMainExecutor(this))
     }
 
@@ -285,6 +339,15 @@ class ScannerActivity : ComponentActivity() {
                 buffer.position(start + y * plane.rowStride)
                 if (plane.pixelStride == 1) buffer.get(line) else for (x in line.indices) line[x] = buffer.get(start + y * plane.rowStride + x * plane.pixelStride)
                 gray.put(y, 0, line)
+            }
+            // Auto-pair by scanning QR code on computer/smartboard screen when not yet paired!
+            frameCounter++
+            if (roomCode.isEmpty() && frameCounter % 4 == 0) {
+                val qrText = qrDetector.detectAndDecode(gray)
+                if (qrText != null && qrText.isNotEmpty()) {
+                    val m = Regex("SK[0-9]{4}").find(qrText.uppercase())
+                    if (m != null) pairWithRoom(m.value)
+                }
             }
             detector.detectMarkers(gray, corners, ids)
             val seen = mutableMapOf<Int, String>()
