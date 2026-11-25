@@ -1,0 +1,2026 @@
+{
+  "FB.5.1.1": [
+    {
+      "stem": "Yeryüzündeki yaşamın temel enerji kaynağı hangi gök cismidir?",
+      "options": [
+        "Ay",
+        "Güneş",
+        "Mars",
+        "Dünya"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_1_1.pdf",
+        "location": "s. 4, Bulmaca 1",
+        "permission": "MEB kaynak sorusu sınıf içi kullanım için yeniden ifade edildi; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Güneş'in yüzeyinde koyu görünen bölgelerin adı nedir?",
+      "options": [
+        "Krater",
+        "Güneş lekesi",
+        "Gölge",
+        "Meteor"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_1_1.pdf",
+        "location": "s. 4, Bulmaca 2",
+        "permission": "MEB kaynak sorusu sınıf içi kullanım için yeniden ifade edildi; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Güneş'in kendi eksenindeki dönüş yönü hangisidir?",
+      "options": [
+        "Doğudan batıya",
+        "Batıdan doğuya",
+        "Kuzeyden güneye",
+        "Güneyden kuzeye"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_1_1.pdf",
+        "location": "s. 4, Bulmaca 3",
+        "permission": "MEB kaynak sorusu sınıf içi kullanım için yeniden ifade edildi; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Güneş kendi ekseni çevresinde hangi hareketi yapar?",
+      "options": [
+        "Dolanma",
+        "Dönme",
+        "Öteleme",
+        "Salınım"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_1_1.pdf",
+        "location": "s. 4, Bulmaca 4",
+        "permission": "MEB kaynak sorusu sınıf içi kullanım için yeniden ifade edildi; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Güneş'i oluşturan maddeler hangi hâldedir?",
+      "options": [
+        "Katı",
+        "Sıvı",
+        "Gaz",
+        "Kristal"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_1_1.pdf",
+        "location": "s. 4, Bulmaca 5",
+        "permission": "MEB kaynak sorusu sınıf içi kullanım için yeniden ifade edildi; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Güneş'in iç yapısı nasıl düzenlenmiştir?",
+      "options": [
+        "Tek parça",
+        "Katmanlı",
+        "Boşluklu",
+        "Halkalı"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_1_1.pdf",
+        "location": "s. 4, Bulmaca 6",
+        "permission": "MEB kaynak sorusu sınıf içi kullanım için yeniden ifade edildi; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Güneş'in şekli hangisine benzer?",
+      "options": [
+        "Küre",
+        "Küp",
+        "Silindir",
+        "Piramit"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_1_1.pdf",
+        "location": "s. 4, Bulmaca 7",
+        "permission": "MEB kaynak sorusu sınıf içi kullanım için yeniden ifade edildi; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Güneş hangi gök cismi türündedir?",
+      "options": [
+        "Gezegen",
+        "Uydu",
+        "Yıldız",
+        "Meteor"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_1_1.pdf",
+        "location": "s. 4, Bulmaca 8",
+        "permission": "MEB kaynak sorusu sınıf içi kullanım için yeniden ifade edildi; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Güneş hangi tür ışık kaynağıdır?",
+      "options": [
+        "Yapay",
+        "Doğal",
+        "Yansıtıcı",
+        "Elektrikli"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_1_1.pdf",
+        "location": "s. 4, Bulmaca 9",
+        "permission": "MEB kaynak sorusu sınıf içi kullanım için yeniden ifade edildi; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Güneş gözlemi için kullanılan araçta hangisi bulunmalıdır?",
+      "options": [
+        "Güneş filtresi",
+        "Büyüteç",
+        "Renkli cam",
+        "Çıplak mercek"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_1_1.pdf",
+        "location": "s. 4, Bulmaca 10",
+        "permission": "MEB kaynak sorusu sınıf içi kullanım için yeniden ifade edildi; şıklar hazırlandı"
+      }
+    }
+  ],
+  "FB.5.1.2": [
+    {
+      "stem": "Ay yüzeyindeki ayak izi neden uzun süre kalır?",
+      "options": [
+        "Yağmur yağmaz",
+        "Rüzgâr çoktur",
+        "Deniz bulunur",
+        "Orman vardır"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/2.pdf",
+        "location": "s. 1, soru 1",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay yüzeyindeki gök taşı çukurlarına ne denir?",
+      "options": [
+        "Krater",
+        "Leke",
+        "Mağara",
+        "Vadi"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/2.pdf",
+        "location": "s. 1, soru 4",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay bize neden birçok gök cisminden büyük görünür?",
+      "options": [
+        "Yakın olduğu için",
+        "Işık ürettiği için",
+        "Gezegen olduğu için",
+        "Atmosferi kalın olduğu için"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/2.pdf",
+        "location": "s. 1, soru 3",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay’ın dönme ve Dünya çevresinde dolanma süreleri nasıldır?",
+      "options": [
+        "Eşittir",
+        "Dönme daha kısadır",
+        "Dolanma daha kısadır",
+        "İkisi de yoktur"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/2.pdf",
+        "location": "s. 2, soru 7",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay hangi ışık kaynağı türüdür?",
+      "options": [
+        "Doğal ışık kaynağı",
+        "Yapay ışık kaynağı",
+        "Işık kaynağı değildir",
+        "Elektrikli ışık kaynağı"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/2.pdf",
+        "location": "s. 2, soru 9",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay’da astronot kıyafeti neden gereklidir?",
+      "options": [
+        "Solunumu sağlamak",
+        "Daha hızlı koşmak",
+        "Uçmayı sağlamak",
+        "Işık üretmek"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/2.pdf",
+        "location": "s. 2, soru 10",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Dünya’dan Ay’ın hangi yüzü görülür?",
+      "options": [
+        "Hep aynı yüzü",
+        "Hep arka yüzü",
+        "Tüm yüzleri",
+        "Hiçbir yüzü"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/2.pdf",
+        "location": "s. 2, soru 12",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay’ın atmosferi nasıl tanımlanır?",
+      "options": [
+        "Çok ince",
+        "Çok kalın",
+        "Dünya’yla aynı",
+        "Hiç değişmez"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/2.pdf",
+        "location": "s. 2, soru 9",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay, Dünya’nın hangi gök cismidir?",
+      "options": [
+        "Doğal uydusu",
+        "Yıldızı",
+        "Gezegeni",
+        "Yapay uydusu"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/2.pdf",
+        "location": "s. 1, soru 6",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay’ın farklı görünümlerinin temel nedeni hangi harekettir?",
+      "options": [
+        "Dünya çevresinde dolanma",
+        "Kendi çevresinde dönme",
+        "Dünya’nın dönmesi",
+        "Güneş’in dönmesi"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/2.pdf",
+        "location": "s. 2, soru 11",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    }
+  ],
+  "FB.6.1.1": [
+    {
+      "stem": "Hangi iki gezegenin doğal uydusu yoktur?",
+      "options": [
+        "Merkür ve Venüs",
+        "Dünya ve Mars",
+        "Satürn ve Uranüs",
+        "Jüpiter ve Neptün"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/6kt/fen/1.pdf",
+        "location": "s. 1, soru 4",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Dünya hangi gezegen grubundadır?",
+      "options": [
+        "İç gezegen",
+        "Dış gezegen",
+        "Cüce gezegen",
+        "Uydu"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/6kt/fen/1.pdf",
+        "location": "s. 1, soru 2",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Venüs hangi gezegen grubundadır?",
+      "options": [
+        "Dış gezegen",
+        "İç gezegen",
+        "Cüce gezegen",
+        "Uydu"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/6kt/fen/1.pdf",
+        "location": "s. 2, soru 6",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Kızıl Gezegen olarak bilinen hangisidir?",
+      "options": [
+        "Mars",
+        "Venüs",
+        "Merkür",
+        "Uranüs"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/6kt/fen/1.pdf",
+        "location": "s. 2, soru 7",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Gezegenler hangi yıldızın çevresinde dolanır?",
+      "options": [
+        "Güneş",
+        "Sirius",
+        "Ay",
+        "Kutup Yıldızı"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/6kt/fen/1.pdf",
+        "location": "s. 2, soru 9",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Dönme ekseni çok eğik olan gezegen hangisidir?",
+      "options": [
+        "Uranüs",
+        "Merkür",
+        "Mars",
+        "Dünya"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/6kt/fen/1.pdf",
+        "location": "s. 2, soru 10",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Asteroit Kuşağı hangi iki gezegenin arasındadır?",
+      "options": [
+        "Mars ve Jüpiter",
+        "Dünya ve Mars",
+        "Jüpiter ve Satürn",
+        "Uranüs ve Neptün"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/6kt/fen/1.pdf",
+        "location": "s. 2, soru 11",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Güneş sisteminin en küçük gezegeni hangisidir?",
+      "options": [
+        "Merkür",
+        "Venüs",
+        "Mars",
+        "Neptün"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/6kt/fen/1.pdf",
+        "location": "s. 2, soru 12",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Güneş’e en uzak gezegen hangisidir?",
+      "options": [
+        "Neptün",
+        "Uranüs",
+        "Satürn",
+        "Jüpiter"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/6kt/fen/1.pdf",
+        "location": "s. 2, soru 12",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Halkaları en belirgin gezegen hangisidir?",
+      "options": [
+        "Satürn",
+        "Mars",
+        "Dünya",
+        "Merkür"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/6kt/fen/1.pdf",
+        "location": "s. 2, soru 12",
+        "permission": "MEB yayımlanmış sorusunun kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    }
+  ],
+  "FB.5.1.3": [
+    {
+      "stem": "Yeni Ay’dan sonra hangi ana evre gelir?",
+      "options": [
+        "İlk dördün",
+        "Son dördün",
+        "Dolunay",
+        "Yeni Ay"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_2_2.pdf",
+        "location": "s. 5, zıplama oyunu, evre sırası",
+        "permission": "MEB yayımlanmış etkinliğinin kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "İlk dördünden sonra hangi ana evre gelir?",
+      "options": [
+        "Yeni Ay",
+        "Dolunay",
+        "Son dördün",
+        "Hilal"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_2_2.pdf",
+        "location": "s. 5, zıplama oyunu, evre sırası",
+        "permission": "MEB yayımlanmış etkinliğinin kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Dolunaydan sonra hangi ana evre gelir?",
+      "options": [
+        "İlk dördün",
+        "Yeni Ay",
+        "Son dördün",
+        "Hilal"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_2_2.pdf",
+        "location": "s. 5, zıplama oyunu, soru a",
+        "permission": "MEB yayımlanmış etkinliğinin kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Son dördünden sonra hangi ana evre gelir?",
+      "options": [
+        "Dolunay",
+        "Yeni Ay",
+        "İlk dördün",
+        "Şişkin Ay"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_2_2.pdf",
+        "location": "s. 5, zıplama oyunu, soru ç",
+        "permission": "MEB yayımlanmış etkinliğinin kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Dolunaydan üç ana evre sonra hangisi gelir?",
+      "options": [
+        "Dolunay",
+        "İlk dördün",
+        "Son dördün",
+        "Yeni Ay"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_2_2.pdf",
+        "location": "s. 5, zıplama oyunu, soru a",
+        "permission": "MEB yayımlanmış etkinliğinin kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay sağ yarısı aydınlık görünüyorsa hangi evrededir?",
+      "options": [
+        "İlk dördün",
+        "Son dördün",
+        "Yeni Ay",
+        "Dolunay"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/3.pdf",
+        "location": "s. 1, soru 3",
+        "permission": "MEB yayımlanmış etkinliğinin kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay sol yarısı aydınlık görünüyorsa hangi evrededir?",
+      "options": [
+        "İlk dördün",
+        "Son dördün",
+        "Yeni Ay",
+        "Dolunay"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/3.pdf",
+        "location": "s. 1, soru 3",
+        "permission": "MEB yayımlanmış etkinliğinin kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay, Güneş ile Dünya arasındaysa hangi evrededir?",
+      "options": [
+        "Dolunay",
+        "Yeni Ay",
+        "İlk dördün",
+        "Son dördün"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/3.pdf",
+        "location": "s. 1, soru 6",
+        "permission": "MEB yayımlanmış etkinliğinin kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "İlk dördünden yaklaşık bir hafta sonra hangi evre gelir?",
+      "options": [
+        "Dolunay",
+        "Yeni Ay",
+        "Son dördün",
+        "Hilal"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/3.pdf",
+        "location": "s. 2, soru 9",
+        "permission": "MEB yayımlanmış etkinliğinin kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    },
+    {
+      "stem": "Ay Dünya’dan görülmüyorsa ana evresi hangisidir?",
+      "options": [
+        "Son dördün",
+        "Dolunay",
+        "Yeni Ay",
+        "İlk dördün"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://odsgm.meb.gov.tr/destekmateryal/pdf/5kt/fen/3.pdf",
+        "location": "s. 1, soru 3",
+        "permission": "MEB yayımlanmış etkinliğinin kısa sınıf içi uyarlaması; şıklar hazırlandı"
+      }
+    }
+  ],
+  "FB.5.1.4": [
+    {
+      "stem": "“Dünya’dan kütle ve çap olarak çok büyüktür.” Hangi gök cismi?",
+      "options": [
+        "Güneş",
+        "Dünya",
+        "Ay",
+        "Hiçbiri"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_3_1.pdf",
+        "location": "basılı s. 12, Ünite Değerlendirme 3, Tablo 1 madde 3",
+        "permission": "Öğretmenin talebiyle sınıf içi kullanım için kaynak etkinlik kısa dört şıklı biçime uyarlandı; yayım/yeniden dağıtım izni ayrıca doğrulanmadı.",
+        "answerEvidence": "Madde 3 Güneş’i tanımlar; aynı PDF s. 4 büyüklük modelinde Güneş en büyük."
+      }
+    },
+    {
+      "stem": "“Kendi etrafındaki dönüşünü 24 saatte tamamlar.” Hangi gök cismi?",
+      "options": [
+        "Ay",
+        "Güneş",
+        "Dünya",
+        "Hiçbiri"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_3_1.pdf",
+        "location": "basılı s. 12, Ünite Değerlendirme 3, Tablo 1 madde 7",
+        "permission": "Öğretmenin talebiyle sınıf içi kullanım için kaynak etkinlik kısa dört şıklı biçime uyarlandı; yayım/yeniden dağıtım izni ayrıca doğrulanmadı.",
+        "answerEvidence": "Madde 7 Dünya’yı tanımlar; aynı PDF s. 13 kutu 12 de 24 saati belirtir."
+      }
+    },
+    {
+      "stem": "“Dünya’dan kütle ve çap olarak çok küçüktür.” Hangi gök cismi?",
+      "options": [
+        "Dünya",
+        "Ay",
+        "Güneş",
+        "Hiçbiri"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_3_1.pdf",
+        "location": "basılı s. 12, Ünite Değerlendirme 3, Tablo 1 madde 8",
+        "permission": "Öğretmenin talebiyle sınıf içi kullanım için kaynak etkinlik kısa dört şıklı biçime uyarlandı; yayım/yeniden dağıtım izni ayrıca doğrulanmadı.",
+        "answerEvidence": "Madde 8 Ay’ı tanımlar; aynı PDF s. 4 büyüklük modelinde Ay en küçük."
+      }
+    },
+    {
+      "stem": "“Kendi etrafındaki dönüşünü 27,3 günde tamamlar.” Hangi gök cismi?",
+      "options": [
+        "Dünya",
+        "Güneş",
+        "Hiçbiri",
+        "Ay"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_3_1.pdf",
+        "location": "basılı s. 12, Ünite Değerlendirme 3, Tablo 1 madde 11",
+        "permission": "Öğretmenin talebiyle sınıf içi kullanım için kaynak etkinlik kısa dört şıklı biçime uyarlandı; yayım/yeniden dağıtım izni ayrıca doğrulanmadı.",
+        "answerEvidence": "Madde 11 Ay’ı tanımlar; aynı PDF s. 6 kartta yaklaşık 27 gün yazılıdır."
+      }
+    },
+    {
+      "stem": "“Üç farklı hareketi vardır.” Hangi gök cismi?",
+      "options": [
+        "Güneş",
+        "Ay",
+        "Dünya",
+        "Hiçbiri"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_3_1.pdf",
+        "location": "basılı s. 12, Ünite Değerlendirme 3, Tablo 1 madde 12",
+        "permission": "Öğretmenin talebiyle sınıf içi kullanım için kaynak etkinlik kısa dört şıklı biçime uyarlandı; yayım/yeniden dağıtım izni ayrıca doğrulanmadı.",
+        "answerEvidence": "Madde 12 Ay’ı tanımlar; s. 7 Ay’ın dönme ve iki dolanma hareketi listelenir."
+      }
+    },
+    {
+      "stem": "“Dolanma hareketi sonucunda mevsimler oluşur.” Hangi gök cismi?",
+      "options": [
+        "Ay",
+        "Güneş",
+        "Dünya",
+        "Hiçbiri"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_3_1.pdf",
+        "location": "basılı s. 12, Ünite Değerlendirme 3, Tablo 1 madde 13",
+        "permission": "Öğretmenin talebiyle sınıf içi kullanım için kaynak etkinlik kısa dört şıklı biçime uyarlandı; yayım/yeniden dağıtım izni ayrıca doğrulanmadı.",
+        "answerEvidence": "Madde 13 Dünya’yı tanımlar; Dünya’nın Güneş çevresindeki dolanımı kastedilir."
+      }
+    },
+    {
+      "stem": "“Dünya’nın etrafında dolanır.” Hangi gök cismi?",
+      "options": [
+        "Güneş",
+        "Ay",
+        "Dünya",
+        "Hiçbiri"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_3_1.pdf",
+        "location": "basılı s. 9, Anlam Çözümleme 2, madde a",
+        "permission": "Öğretmenin talebiyle sınıf içi kullanım için kaynak etkinlik kısa dört şıklı biçime uyarlandı; yayım/yeniden dağıtım izni ayrıca doğrulanmadı.",
+        "answerEvidence": "Madde a Ay’a aittir; s. 7 Ay’ın Dünya çevresinde dolanması açıklanır."
+      }
+    },
+    {
+      "stem": "“İçlerindeki en büyük gök cismidir.” Hangisi?",
+      "options": [
+        "Ay",
+        "Dünya",
+        "Güneş",
+        "Hepsi"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_3_1.pdf",
+        "location": "basılı s. 9, Anlam Çözümleme 2, madde e",
+        "permission": "Öğretmenin talebiyle sınıf içi kullanım için kaynak etkinlik kısa dört şıklı biçime uyarlandı; yayım/yeniden dağıtım izni ayrıca doğrulanmadı.",
+        "answerEvidence": "Madde e Güneş’e aittir; s. 4 modelin büyüklük ölçütü bunu doğrular."
+      }
+    },
+    {
+      "stem": "“İçlerindeki en küçük gök cismidir.” Hangisi?",
+      "options": [
+        "Güneş",
+        "Dünya",
+        "Hepsi",
+        "Ay"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_3_1.pdf",
+        "location": "basılı s. 9, Anlam Çözümleme 2, madde f",
+        "permission": "Öğretmenin talebiyle sınıf içi kullanım için kaynak etkinlik kısa dört şıklı biçime uyarlandı; yayım/yeniden dağıtım izni ayrıca doğrulanmadı.",
+        "answerEvidence": "Madde f Ay’a aittir; s. 4 modelin büyüklük ölçütü bunu doğrular."
+      }
+    },
+    {
+      "stem": "Güneş, Dünya ve Ay için doğru büyüklük sırası hangisi?",
+      "options": [
+        "Güneş > Dünya > Ay",
+        "Dünya > Güneş > Ay",
+        "Ay > Dünya > Güneş",
+        "Güneş > Ay > Dünya"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_3_1.pdf",
+        "location": "basılı s. 4, Dünyamız ve Komşuları model yönergesi; s. 5 doğruluk ölçeği",
+        "permission": "Öğretmenin talebiyle sınıf içi kullanım için kaynak etkinlik kısa dört şıklı biçime uyarlandı; yayım/yeniden dağıtım izni ayrıca doğrulanmadı.",
+        "answerEvidence": "s. 4 model görseli ve s. 5 büyüklük ilişkisinin doğruluğu ölçütü Güneş > Dünya > Ay sırasını gösterir."
+      }
+    }
+  ],
+  "FB.5.2.1": [
+    {
+      "stem": "Kuvvetin büyüklüğünü ölçen alet hangisidir?",
+      "options": [
+        "Dinamometre",
+        "Termometre",
+        "Barometre",
+        "Cetvel"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_1.pdf",
+        "location": "basılı s. 7, Bulmaca 1",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB maddesi kısaltıldı ve dört şık hazırlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF s. 2, FB.5.2.1.1 b: kuvvet büyüklüğü dinamometre ile ölçülür."
+      }
+    },
+    {
+      "stem": "Kuvvet büyüklüğünün birimi hangisidir?",
+      "options": [
+        "Kilogram",
+        "Newton",
+        "Metre",
+        "Litre"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_1.pdf",
+        "location": "basılı s. 7, Bulmaca 2",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB maddesi kısaltıldı ve dört şık hazırlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF s. 2, FB.5.2.1.1 c: Newton (N)."
+      }
+    },
+    {
+      "stem": "Dinamometrede kullanılan maddenin hangi özelliği gerekir?",
+      "options": [
+        "Kırılganlık",
+        "Saydamlık",
+        "Esneklik",
+        "Mıknatıslık"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_1.pdf",
+        "location": "basılı s. 7, Bulmaca 3",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB maddesi kısaltıldı ve dört şık hazırlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF s. 3-4 yayların uzama etkinliği esneklik özelliğini ölçer."
+      }
+    },
+    {
+      "stem": "Cisimleri yavaşlatan, hızlandıran veya durduran etki nedir?",
+      "options": [
+        "Isı",
+        "Işık",
+        "Ses",
+        "Kuvvet"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_1.pdf",
+        "location": "basılı s. 7, Bulmaca 4",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB maddesi kısaltıldı ve dört şık hazırlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Bulmaca 4 kuvvetin hareket üzerindeki etkilerini tarif eder; güncel program FB.5.2.1 a."
+      }
+    },
+    {
+      "stem": "Aynı cins yayların esnekliğini belirleyen özellik hangisidir?",
+      "options": [
+        "Renk",
+        "Kalınlık",
+        "Koku",
+        "Uzunluk"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_1.pdf",
+        "location": "basılı s. 7, Bulmaca 5",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB maddesi kısaltıldı ve dört şık hazırlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF s. 4 P/R/S yayları aynı cins ve uzunlukta, kesitleri 1/3/5 mm; s. 5 kalınlık karşılaştırılır."
+      }
+    },
+    {
+      "stem": "30 N’lık cisim, A–D dinamometrelerinden hangileriyle ölçülebilir?",
+      "options": [
+        "A ve B",
+        "B ve C",
+        "C ve D",
+        "Yalnız D"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_1.pdf",
+        "location": "basılı s. 9, Çalışma Kâğıdı 1a; görsel A=10, B=20, C=30, D=40 N",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB maddesi kısaltıldı ve dört şık hazırlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Görselde C en çok 30 N, D en çok 40 N ölçer; A/B kapasitesi yetmez."
+      }
+    },
+    {
+      "stem": "15 N’lık cisim, hangi dinamometrelerin esnekliğini bozar?",
+      "options": [
+        "Yalnız A",
+        "A ve B",
+        "C ve D",
+        "Hiçbiri"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_1.pdf",
+        "location": "basılı s. 9, Çalışma Kâğıdı 1b; görsel A=10, B=20, C=30, D=40 N",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB maddesi kısaltıldı ve dört şık hazırlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "15 N, A’nın 10 N üst sınırını aşar; B/C/D sınırlarını aşmaz."
+      }
+    },
+    {
+      "stem": "A–D dinamometrelerinden en hassas ölçümü hangisi yapar?",
+      "options": [
+        "D",
+        "C",
+        "B",
+        "A"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_1.pdf",
+        "location": "basılı s. 9, Çalışma Kâğıdı 1c; görsel A=10, B=20, C=30, D=40 N",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB maddesi kısaltıldı ve dört şık hazırlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Görselde aynı gösterge uzunluğunda A en küçük aralığı (10 N) ölçer."
+      }
+    },
+    {
+      "stem": "Eşit ağırlıklar asılırsa uzama sırası hangisidir?",
+      "options": [
+        "A>B>C>D",
+        "D>C>B>A",
+        "A=B=C=D",
+        "C>D>A>B"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_1.pdf",
+        "location": "basılı s. 9, Çalışma Kâğıdı 1ç; görsel A=10, B=20, C=30, D=40 N",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB maddesi kısaltıldı ve dört şık hazırlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Eşit uzunluklu göstergelerde daha düşük kapasiteli yay aynı kuvvetle daha çok uzar: A>B>C>D."
+      }
+    },
+    {
+      "stem": "A–D yaylarının kalınlık sırası hangisidir?",
+      "options": [
+        "A>B>C>D",
+        "D>C>B>A",
+        "A=C>B=D",
+        "B>D>C>A"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_1.pdf",
+        "location": "basılı s. 10, Çalışma Kâğıdı 1f; s. 9 görsel A=10, B=20, C=30, D=40 N",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB maddesi kısaltıldı ve dört şık hazırlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı seri görselde büyük kuvvet kapasitesi kalın yayla ilişkilidir: D>C>B>A; s. 4-5 kesit etkinliği destekler."
+      }
+    }
+  ],
+  "FB.5.2.2": [
+    {
+      "stem": "3–5 N grubunu ölçme modelinde hangi yay seçilir?",
+      "options": [
+        "İnce yay",
+        "Kalın yay",
+        "Çelik çubuk",
+        "İp"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_2.pdf",
+        "location": "basılı s. 2, Uygun Yayı Seçiyorum, I. aşama; 2. grup 3/4/5 N",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliğinin alt görevi kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF s. 2 ince/kalın yay seçimi ve s. 3 uygun yayı seçme kontrolü; küçük kuvvette ince yay daha belirgin uzar."
+      }
+    },
+    {
+      "stem": "20–40 N grubunu ölçme modelinde hangi yay seçilir?",
+      "options": [
+        "İnce yay",
+        "Kalın yay",
+        "İp",
+        "Cetvel"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_2.pdf",
+        "location": "basılı s. 2, Uygun Yayı Seçiyorum, I. aşama; 1. grup 20/30/40 N",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliğinin alt görevi kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF s. 2 ağır grup ve kalın yay seçimi; ince yayın esnekliği bozulursa diğer yayla tekrarlama notu."
+      }
+    },
+    {
+      "stem": "Ölçümde yayın esnekliği bozulursa ne yapılır?",
+      "options": [
+        "Ölçeği silmek",
+        "Daha ağır asmak",
+        "Diğer yayı denemek",
+        "Kancayı çıkarmak"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_2.pdf",
+        "location": "basılı s. 2, Uygun Yayı Seçiyorum, I. aşama notu",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliğinin alt görevi kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynak notu esneklik bozulduğunda diğer yayla etkinliği tekrarlamayı söyler."
+      }
+    },
+    {
+      "stem": "Uzama gözlenemiyorsa model için hangi işlem önerilir?",
+      "options": [
+        "Yayı boyamak",
+        "Yükü kaldırmak",
+        "Cetveli atmak",
+        "Diğer yayı denemek"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_2.pdf",
+        "location": "basılı s. 2, Uygun Yayı Seçiyorum, I. aşama notu",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliğinin alt görevi kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynak notu uzama gözleminde güçlük olduğunda diğer yayla tekrarlamayı söyler."
+      }
+    },
+    {
+      "stem": "K cismi hangi dinamometreyle ölçülebilir?",
+      "options": [
+        "Yalnız A",
+        "Yalnız B",
+        "Yalnız C",
+        "B ve C"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_2.pdf",
+        "location": "basılı s. 4, Kendi Dinamometremi Tasarlıyorum, giriş ve tablo",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliğinin alt görevi kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynak cümlesi K’nin B ve C yaylarını bozup A ile ölçülebildiğini doğrudan bildirir."
+      }
+    },
+    {
+      "stem": "K cisminin ağırlığı hangi aralıkta olabilir?",
+      "options": [
+        "0–10 N",
+        "10–20 N",
+        "20 N üstü–50 N",
+        "50 N üstü"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_2.pdf",
+        "location": "basılı s. 4, Kendi Dinamometremi Tasarlıyorum, tablo",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliğinin alt görevi kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "10 bölme × B=1 N, C=2 N, A=5 N: K, C’nin 20 N sınırından büyük ve A’nın 50 N sınırından büyük değildir (20 < K ≤ 50)."
+      }
+    },
+    {
+      "stem": "A dinamometresinin kapasitesi kaç N’dir?",
+      "options": [
+        "10 N",
+        "20 N",
+        "40 N",
+        "50 N"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_2.pdf",
+        "location": "basılı s. 4, Kendi Dinamometremi Tasarlıyorum, A sütunu",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliğinin alt görevi kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "10 bölme × 5 N/bölme = 50 N."
+      }
+    },
+    {
+      "stem": "B dinamometresinin kapasitesi kaç N’dir?",
+      "options": [
+        "10 N",
+        "20 N",
+        "40 N",
+        "50 N"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_2.pdf",
+        "location": "basılı s. 4, Kendi Dinamometremi Tasarlıyorum, B sütunu",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliğinin alt görevi kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "10 bölme × 1 N/bölme = 10 N."
+      }
+    },
+    {
+      "stem": "C dinamometresinin kapasitesi kaç N’dir?",
+      "options": [
+        "10 N",
+        "20 N",
+        "40 N",
+        "50 N"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_2.pdf",
+        "location": "basılı s. 4, Kendi Dinamometremi Tasarlıyorum, C sütunu",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliğinin alt görevi kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "10 bölme × 2 N/bölme = 20 N."
+      }
+    },
+    {
+      "stem": "3 mm² yaylı A’dan daha hassas model için hangi kesit seçilebilir?",
+      "options": [
+        "5 mm²",
+        "4 mm²",
+        "2 mm²",
+        "6 mm²"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_2.pdf",
+        "location": "basılı s. 6, Çalışma Kâğıdı 2c; A yayı 3 mm²",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliğinin alt görevi kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Daha hassas model için daha ince yay seçilir; seçeneklerde 3 mm²’den küçük tek kesit 2 mm². Aynı PDF s. 4 kesit ve bölme değeri tablosu bunu destekler."
+      }
+    }
+  ],
+  "FB.5.2.3": [
+    {
+      "stem": "“Birimi Newton’dır.” Hangi kavramdır?",
+      "options": [
+        "Kütle",
+        "Ağırlık",
+        "Her ikisi",
+        "Hiçbiri"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_2_1.pdf",
+        "location": "basılı s. 10, Labirent ifade 1",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle yayımlanmış ifade kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Tombala bilgi kartı 2 “Ağırlık birimidir”; kavram kartında Newton; N kuvvet birimi."
+      }
+    },
+    {
+      "stem": "“Birimi kilogramdır.” Hangi kavramdır?",
+      "options": [
+        "Kütle",
+        "Ağırlık",
+        "Her ikisi",
+        "Hiçbiri"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_2_1.pdf",
+        "location": "basılı s. 10, Labirent ifade 2",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle yayımlanmış ifade kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Tombala bilgi kartı 4 “Kütle birimidir”; kavram kartında Kilogram."
+      }
+    },
+    {
+      "stem": "“Cisme etki eden yer çekimi kuvvetidir.” Hangisidir?",
+      "options": [
+        "Kütle",
+        "Ağırlık",
+        "Her ikisi",
+        "Hiçbiri"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_2_1.pdf",
+        "location": "basılı s. 10, Labirent ifade 3",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle yayımlanmış ifade kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF basılı s. 7 bilgi kartı 1 ağırlığı kütleye etki eden yer çekimi kuvveti olarak tanımlar."
+      }
+    },
+    {
+      "stem": "“Madde miktarının ölçüsüdür.” Hangisidir?",
+      "options": [
+        "Kütle",
+        "Ağırlık",
+        "Her ikisi",
+        "Hiçbiri"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_2_1.pdf",
+        "location": "basılı s. 10, Labirent ifade 4",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle yayımlanmış ifade kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF basılı s. 7 bilgi kartı 6 kütleyi değişmeyen madde miktarı olarak tanımlar."
+      }
+    },
+    {
+      "stem": "“Kutuplarda daha büyük ölçülür.” Hangisidir?",
+      "options": [
+        "Kütle",
+        "Ağırlık",
+        "Her ikisi",
+        "Hiçbiri"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_2_1.pdf",
+        "location": "basılı s. 10, Labirent ifade 6",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle yayımlanmış ifade kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı labirent madde 6 ağırlığa yönlendirir; ağırlık yer çekimine bağlıdır (madde 5)."
+      }
+    },
+    {
+      "stem": "“Bir kuvvettir.” Hangi kavramdır?",
+      "options": [
+        "Kütle",
+        "Ağırlık",
+        "Her ikisi",
+        "Hiçbiri"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_2_1.pdf",
+        "location": "basılı s. 10, Labirent ifade 7",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle yayımlanmış ifade kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF basılı s. 7 bilgi kartı 1 ve kapak süreç bileşeni c ağırlığı kuvvet olarak tanımlar."
+      }
+    },
+    {
+      "stem": "“Eşit kollu terazi ile ölçülür.” Hangisidir?",
+      "options": [
+        "Kütle",
+        "Ağırlık",
+        "Her ikisi",
+        "Hiçbiri"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_2_1.pdf",
+        "location": "basılı s. 10, Labirent ifade 9",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle yayımlanmış ifade kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF basılı s. 7 bilgi kartı 3 kütleyi ölçen aleti; basılı s. 4 terazi düzeneği kütleyi ölçer."
+      }
+    },
+    {
+      "stem": "“Yerin merkezinden uzaklaşınca değeri azalır.” Hangisidir?",
+      "options": [
+        "Kütle",
+        "Ağırlık",
+        "Her ikisi",
+        "Hiçbiri"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_2_1.pdf",
+        "location": "basılı s. 10, Labirent ifade 11",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle yayımlanmış ifade kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı labirent madde 11 ağırlığın konuma bağlı değişimini sorgular; basılı s. 10 madde 5 yer çekimine bağlılık."
+      }
+    },
+    {
+      "stem": "“Dünya ve Ay’da miktarı aynıdır.” Hangisidir?",
+      "options": [
+        "Kütle",
+        "Ağırlık",
+        "Her ikisi",
+        "Hiçbiri"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_2_1.pdf",
+        "location": "basılı s. 10, Labirent ifade 13",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle yayımlanmış ifade kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF basılı s. 7 bilgi kartı 6 kütleyi değişmeyen madde miktarı olarak tanımlar."
+      }
+    },
+    {
+      "stem": "“Dinamometre ile ölçülür.” Hangisidir?",
+      "options": [
+        "Kütle",
+        "Ağırlık",
+        "Her ikisi",
+        "Hiçbiri"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_2_1.pdf",
+        "location": "basılı s. 10, Labirent ifade 15",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle yayımlanmış ifade kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı PDF kapak süreç bileşeni b ve basılı s. 7 bilgi kartı 5 ağırlığın dinamometreyle ölçüldüğünü belirtir."
+      }
+    }
+  ],
+  "FB.5.2.4": [
+    {
+      "stem": "Bilye deneyi sürtünmenin hangi etkene bağlılığını inceler?",
+      "options": [
+        "Yüzey yapısı",
+        "Bilye rengi",
+        "Kase rengi",
+        "Kronometre türü"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_3_1.pdf",
+        "location": "basılı s. 5–6, TGA, Açıkla 1",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliği kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Aynı kase ve bilye korunup yol boş, havlu ve buruşuk folyo ile değiştirilir; değişken yüzey yapısıdır."
+      }
+    },
+    {
+      "stem": "Bilyenin daha uzun gitmesi için yol nasıl olmalı?",
+      "options": [
+        "Daha pürüzlü",
+        "Daha düz",
+        "Daha dik",
+        "Daha kısa"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_3_1.pdf",
+        "location": "basılı s. 6, TGA, soru b",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliği kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Pürüzü azaltmak sürtünmeyi azaltır; bilyenin durma süresi uzar. TGA düzeninde değiştirilen yol yüzeyidir."
+      }
+    },
+    {
+      "stem": "Yollarda eşit durma süresi için hangi değişiklik uygundur?",
+      "options": [
+        "Bilyeyi boyamak",
+        "Kaseyi büyütmek",
+        "Yüzeyleri eşitlemek",
+        "Saati değiştirmek"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_3_1.pdf",
+        "location": "basılı s. 6, TGA, soru a",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliği kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Yüzey farkı deneyin değişkenidir; aynı tür yüzeyler sürtünme farkını giderir."
+      }
+    },
+    {
+      "stem": "Para hedefe varmadan durursa hangi etki fazla olabilir?",
+      "options": [
+        "Yer çekimi",
+        "Isı",
+        "Işık",
+        "Sürtünme"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_3_1.pdf",
+        "location": "basılı s. 7, Sürtünme Kuvveti, soru 1",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliği kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynak düzeneğinde yağlı kâğıt/karton/zımpara değiştirilir; erken duruş yüksek sürtünmeyle açıklanır."
+      }
+    },
+    {
+      "stem": "Para hedefi geçerse hangi yüzey değişikliği uygundur?",
+      "options": [
+        "Zımparaya geçmek",
+        "Yağlı kâğıda geçmek",
+        "Yüzeyi kaldırmak",
+        "Parayı boyamak"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_3_1.pdf",
+        "location": "basılı s. 7, Sürtünme Kuvveti, soru 2",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliği kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Hedefi geçişte sürtünme artırılmalıdır; kaynakta sunulan zımpara yüzeyi yağa göre daha pürüzlüdür."
+      }
+    },
+    {
+      "stem": "A–C zeminlerinde sürtünme sırası hangisidir?",
+      "options": [
+        "A>B>C",
+        "C>B>A",
+        "B>A>C",
+        "A=C>B"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_3_1.pdf",
+        "location": "basılı s. 8, Çalışma Kâğıdı 1a, Şekil 2 grafiği",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliği kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Görselde yay uzaması A en az, B orta, C en çok; aynı cismi hareket ettiren kuvvet ve sürtünme C>B>A."
+      }
+    },
+    {
+      "stem": "Aynı F ile itilen araba en uzun yolu hangi zeminde alır?",
+      "options": [
+        "C",
+        "B",
+        "A",
+        "Hepsinde eşit"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_3_1.pdf",
+        "location": "basılı s. 8, Çalışma Kâğıdı 1b, Şekil 2 grafiği",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliği kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "A zemini en düşük sürtünmeye sahiptir; aynı ilk itişte araba A üzerinde en uzun gider."
+      }
+    },
+    {
+      "stem": "B ve C, A kadar az sürtünmeli olsun: ne yapılır?",
+      "options": [
+        "Pürüz artırılır",
+        "Ağırlık artırılır",
+        "Yay çıkarılır",
+        "Yüzey düzleştirilir"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_3_1.pdf",
+        "location": "basılı s. 8, Çalışma Kâğıdı 1c, Şekil 2 grafiği",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliği kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "A grafikte en az kuvvet ister; B/C yüzeylerini düzleştirmek sürtünmeyi A düzeyine yaklaştırır."
+      }
+    },
+    {
+      "stem": "K–M yollarında sürtünme sırası hangisidir?",
+      "options": [
+        "K>M>L",
+        "L>M>K",
+        "M>K>L",
+        "Hepsi eşit"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_3_1.pdf",
+        "location": "basılı s. 10, Çalışma Kâğıdı 3a, kuvvet grafiği",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliği kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Görselde minimum hareket kuvveti L en büyük, M orta, K en küçük; sürtünme L>M>K."
+      }
+    },
+    {
+      "stem": "Eğik düzlemde bilye hangi yolda en hızlı iner?",
+      "options": [
+        "K",
+        "L",
+        "M",
+        "Hepsinde eşit"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_3_1.pdf",
+        "location": "basılı s. 10, Çalışma Kâğıdı 3c, eğik düzlem ve kuvvet grafiği",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB etkinliği kısa dört şıklı biçime uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Eşit eğimde K yüzeyinin sürtünmesi en düşüktür; bilyenin iniş süresi en kısadır."
+      }
+    }
+  ],
+  "FB.5.3.1": [
+    {
+      "stem": "Enerji üretiminden sorumlu organel hangisidir?",
+      "options": [
+        "Mitokondri",
+        "Ribozom",
+        "Koful",
+        "Sentrozom"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_1.pdf",
+        "location": "basılı s. 12, EK 1; basılı s. 14, EK 2 enerji kartı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB eşleştirme kartı kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "EK 2 enerji üretimi görevini verir; EK 1’deki eşleşen organel mitokondridir."
+      }
+    },
+    {
+      "stem": "Hücre içi madde iletiminde hangi organel görev alır?",
+      "options": [
+        "Lizozom",
+        "Endoplazmik retikulum",
+        "Kloroplast",
+        "Koful"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_1.pdf",
+        "location": "basılı s. 12, EK 1; basılı s. 14, EK 2 iletim kartı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB eşleştirme kartı kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "EK 2 madde iletimini verir; EK 1’deki eşleşen organel endoplazmik retikulumdur."
+      }
+    },
+    {
+      "stem": "Salgıların üretimi ve paketlenmesinde hangisi görevlidir?",
+      "options": [
+        "Ribozom",
+        "Koful",
+        "Golgi cisimciği",
+        "Sentrozom"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_1.pdf",
+        "location": "basılı s. 12, EK 1; basılı s. 14, EK 2 salgı kartı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB eşleştirme kartı kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "EK 2 salgı maddelerinin üretimi ve paketlenmesini belirtir; eşleşme Golgi cisimciğidir."
+      }
+    },
+    {
+      "stem": "Su, besin ve atığı hangi organel depolar?",
+      "options": [
+        "Mitokondri",
+        "Ribozom",
+        "Lizozom",
+        "Koful"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_1.pdf",
+        "location": "basılı s. 12, EK 1; basılı s. 14, EK 2 depolama kartı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB eşleştirme kartı kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "EK 2 depolama görevini verir; EK 1’deki karşılığı kofuldur."
+      }
+    },
+    {
+      "stem": "Besin ve oksijen üretimini hangi organel sağlar?",
+      "options": [
+        "Kloroplast",
+        "Sentrozom",
+        "Koful",
+        "Lizozom"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_1.pdf",
+        "location": "basılı s. 12, EK 1; basılı s. 14, EK 2 üretim kartı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB eşleştirme kartı kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "EK 2 besin ve oksijen üretimini belirtir; eşleşen organel kloroplasttır."
+      }
+    },
+    {
+      "stem": "Hücre içi sindirimde hangi organel görevlidir?",
+      "options": [
+        "Koful",
+        "Lizozom",
+        "Ribozom",
+        "Kloroplast"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_1.pdf",
+        "location": "basılı s. 12, EK 1; basılı s. 14, EK 2 sindirim kartı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB eşleştirme kartı kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "EK 2 hücre içi sindirim görevini verir; karşılığı lizozomdur."
+      }
+    },
+    {
+      "stem": "Hücrenin proteinini hangi organel üretir?",
+      "options": [
+        "Golgi cisimciği",
+        "Koful",
+        "Ribozom",
+        "Sentrozom"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_1.pdf",
+        "location": "basılı s. 12, EK 1; basılı s. 14, EK 2 protein kartı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB eşleştirme kartı kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "EK 2 protein üretimini belirtir; eşleşen organel ribozomdur."
+      }
+    },
+    {
+      "stem": "Hücre bölünmesinde hangi organel görevlidir?",
+      "options": [
+        "Koful",
+        "Kloroplast",
+        "Mitokondri",
+        "Sentrozom"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_1.pdf",
+        "location": "basılı s. 12, EK 1; basılı s. 14, EK 2 bölünme kartı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB eşleştirme kartı kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "EK 2 bölünme görevini verir; EK 1’deki karşılığı sentrozomdur."
+      }
+    },
+    {
+      "stem": "EK 1’deki köşeli model hangi hücre türüdür?",
+      "options": [
+        "Bitki",
+        "Hayvan",
+        "Bakteri",
+        "Mantar"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_1.pdf",
+        "location": "basılı s. 4, Tangram soru a; basılı s. 6, EK 1 görseli",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB eşleştirme kartı kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "EK 1 köşeli dış sınır ve bitki hücresi modelini gösterir; kaynak görevinde model türü sorulur."
+      }
+    },
+    {
+      "stem": "EK 2’deki oval model hangi hücre türüdür?",
+      "options": [
+        "Bitki",
+        "Hayvan",
+        "Bakteri",
+        "Mantar"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_1.pdf",
+        "location": "basılı s. 4, Tangram soru a; basılı s. 8, EK 2 görseli",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB eşleştirme kartı kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "EK 2 oval dış sınır ve hayvan hücresi modelini gösterir; kaynak görevinde model türü sorulur."
+      }
+    }
+  ],
+  "FB.5.3.2": [
+    {
+      "stem": "EK 1’deki tek hücre görseli hangi düzeyi gösterir?",
+      "options": [
+        "Hücre",
+        "Doku",
+        "Organ",
+        "Sistem"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_2.pdf",
+        "location": "basılı s. 4, EK 1 tek hücre görseli; s. 7, çalışma kâğıdı 1",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB görsel/benzetme alt görevi kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Tek hücre çizimi hiyerarşinin hücre düzeyidir."
+      }
+    },
+    {
+      "stem": "EK 1’deki hücre topluluğu hangi düzeyi gösterir?",
+      "options": [
+        "Organ",
+        "Doku",
+        "Sistem",
+        "Organizma"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_2.pdf",
+        "location": "basılı s. 4, EK 1 doku görseli; s. 7, çalışma kâğıdı 1",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB görsel/benzetme alt görevi kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Benzer hücrelerin bir araya geldiği görsel doku düzeyidir."
+      }
+    },
+    {
+      "stem": "EK 1’deki beyin görseli hangi düzeyi gösterir?",
+      "options": [
+        "Hücre",
+        "Doku",
+        "Organ",
+        "Sistem"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_2.pdf",
+        "location": "basılı s. 4, EK 1 beyin görseli; s. 7, çalışma kâğıdı 1",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB görsel/benzetme alt görevi kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Beyin bir organdır; görsel organ düzeyini temsil eder."
+      }
+    },
+    {
+      "stem": "EK 1’deki sinir ağı görseli hangi düzeyi gösterir?",
+      "options": [
+        "Doku",
+        "Organ",
+        "Organizma",
+        "Sistem"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_2.pdf",
+        "location": "basılı s. 4, EK 1 sinir sistemi görseli; s. 7, çalışma kâğıdı 1",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB görsel/benzetme alt görevi kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Beyin ve sinirleri kapsayan görsel sistem düzeyidir."
+      }
+    },
+    {
+      "stem": "EK 1’deki insan görseli hangi düzeyi gösterir?",
+      "options": [
+        "Organizma",
+        "Organ",
+        "Sistem",
+        "Doku"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_2.pdf",
+        "location": "basılı s. 4, EK 1 insan görseli; s. 7, çalışma kâğıdı 1",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB görsel/benzetme alt görevi kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "İnsanın bütününü gösteren görsel organizma düzeyidir."
+      }
+    },
+    {
+      "stem": "Bina benzetmesinde tek tuğla hangi biyolojik düzeydir?",
+      "options": [
+        "Doku",
+        "Hücre",
+        "Organ",
+        "Sistem"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_2.pdf",
+        "location": "basılı s. 6, Örnek Analoji hücre–tuğla; analoji tablosu hücre satırı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB görsel/benzetme alt görevi kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynak tek tuğlayı hücreyle eşler."
+      }
+    },
+    {
+      "stem": "Bina benzetmesinde duvar hangi biyolojik düzeydir?",
+      "options": [
+        "Hücre",
+        "Organ",
+        "Doku",
+        "Organizma"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_2.pdf",
+        "location": "basılı s. 6, Örnek Analoji doku–duvar; analoji tablosu doku satırı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB görsel/benzetme alt görevi kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynak çok tuğlalı duvarı dokuyla eşler."
+      }
+    },
+    {
+      "stem": "Bina benzetmesinde oda hangi biyolojik düzeydir?",
+      "options": [
+        "Sistem",
+        "Organizma",
+        "Doku",
+        "Organ"
+      ],
+      "correctIndex": 3,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_2.pdf",
+        "location": "basılı s. 6, Örnek Analoji organ–oda; analoji tablosu organ satırı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB görsel/benzetme alt görevi kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynak işlevli odayı organla eşler."
+      }
+    },
+    {
+      "stem": "Bina benzetmesinde tesisat hangi biyolojik düzeydir?",
+      "options": [
+        "Sistem",
+        "Hücre",
+        "Organ",
+        "Doku"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_2.pdf",
+        "location": "basılı s. 6, Örnek Analoji sistem–tesisat; analoji tablosu sistem satırı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB görsel/benzetme alt görevi kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynak tesisatı sistemle eşler."
+      }
+    },
+    {
+      "stem": "Bina benzetmesinde binanın bütünü hangi düzeydir?",
+      "options": [
+        "Organ",
+        "Organizma",
+        "Sistem",
+        "Doku"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_2.pdf",
+        "location": "basılı s. 6, Örnek Analoji organizma–bina; analoji tablosu organizma satırı",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB görsel/benzetme alt görevi kısa dört şıklı soruya uyarlandı; yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynak binanın tamamını organizmayla eşler."
+      }
+    }
+  ],
+  "FB.5.3.3": [
+    {
+      "stem": "Vücudumuzdaki en uzun kemik hangisidir?",
+      "options": [
+        "Uyluk kemiği",
+        "Kaburga",
+        "Kafatası kemiği",
+        "El bilek kemiği"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_1.pdf",
+        "location": "basılı s. 7, Çalışma Kâğıdı 1, bulmaca ipucu 1",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB çalışma kâğıdındaki alt görev kısa dört şıklı soruya uyarlandı; genel yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "En uzun kemik uyluk kemiğidir; uzun kemik grubuna girer."
+      }
+    },
+    {
+      "stem": "İç organların duvarında bulunan kas çeşidi hangisidir?",
+      "options": [
+        "Çizgili kas",
+        "Düz kas",
+        "Kalp kası",
+        "İskelet kası"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_1.pdf",
+        "location": "basılı s. 7, Çalışma Kâğıdı 1, bulmaca ipucu 2",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB çalışma kâğıdındaki alt görev kısa dört şıklı soruya uyarlandı; genel yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "İç organların duvarında düz kas bulunur; s. 9 çalışma kâğıdı 3, özellik 3 de aynı eşlemeyi ister."
+      }
+    },
+    {
+      "stem": "Oynamaz eklemler aşağıdaki yapıların hangisinde bulunur?",
+      "options": [
+        "Diz",
+        "Dirsek",
+        "Kafatası",
+        "Omuz"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_1.pdf",
+        "location": "basılı s. 7, Çalışma Kâğıdı 1, bulmaca ipucu 4",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB çalışma kâğıdındaki alt görev kısa dört şıklı soruya uyarlandı; genel yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kafatası kemikleri arasındaki eklemler oynamaz eklem örneğidir."
+      }
+    },
+    {
+      "stem": "Hızlı çalışıp çabuk yorulan kas çeşidi hangisidir?",
+      "options": [
+        "Düz kas",
+        "Kalp kası",
+        "Çizgili kas",
+        "Bağ doku"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_1.pdf",
+        "location": "basılı s. 7, Çalışma Kâğıdı 1, bulmaca ipucu 6",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB çalışma kâğıdındaki alt görev kısa dört şıklı soruya uyarlandı; genel yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Çizgili kas hızlı çalışır ve çabuk yorulur; s. 9 çalışma kâğıdı 3, özellik 2 ve 8 bunu ayrıca sınıflandırır."
+      }
+    },
+    {
+      "stem": "Vücudun dik durmasına destek olan yapı hangisidir?",
+      "options": [
+        "Akciğer",
+        "İskelet",
+        "Mide",
+        "Deri"
+      ],
+      "correctIndex": 1,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_1.pdf",
+        "location": "basılı s. 7, Çalışma Kâğıdı 1, bulmaca ipucu 7",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB çalışma kâğıdındaki alt görev kısa dört şıklı soruya uyarlandı; genel yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "İskelet vücuda destek sağlar ve dik durmaya katkıda bulunur."
+      }
+    },
+    {
+      "stem": "Kemikleri birbirine bağlayan yapı hangisidir?",
+      "options": [
+        "Kas",
+        "Kıkırdak",
+        "Eklem",
+        "Tendon"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_1.pdf",
+        "location": "basılı s. 7, Çalışma Kâğıdı 1, bulmaca ipucu 8",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB çalışma kâğıdındaki alt görev kısa dört şıklı soruya uyarlandı; genel yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynak ipucu kemikleri birbirine bağlayan yapı olarak eklemi hedefler."
+      }
+    },
+    {
+      "stem": "Çizgili kaslar çalışma biçimine göre hangi gruba girer?",
+      "options": [
+        "İstemli çalışan kaslar",
+        "Yalnız kalpte bulunan kaslar",
+        "Yalnız iç organlarda bulunan kaslar",
+        "Hiç yorulmayan kaslar"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_1.pdf",
+        "location": "basılı s. 8, Çalışma Kâğıdı 2, kodlama ifadesi 1",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB çalışma kâğıdındaki alt görev kısa dört şıklı soruya uyarlandı; genel yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynağın “Çizgili kaslar istemsiz çalışır” ifadesi yanlıştır; çizgili iskelet kasları istemli çalışır."
+      }
+    },
+    {
+      "stem": "İskelet kası adı verilen kas çeşidi hangisidir?",
+      "options": [
+        "Kalp kası",
+        "Düz kas",
+        "Çizgili kas",
+        "Kıkırdak"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_1.pdf",
+        "location": "basılı s. 8, Çalışma Kâğıdı 2, kodlama ifadesi 3",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB çalışma kâğıdındaki alt görev kısa dört şıklı soruya uyarlandı; genel yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynağın 3. ifadesi çizgili kasa iskelet kası da dendiğini belirtir."
+      }
+    },
+    {
+      "stem": "Kafatası kemikleri arasındaki eklemler hareketine göre nasıl sınıflanır?",
+      "options": [
+        "Oynar",
+        "Yarı oynar",
+        "Oynamaz",
+        "Kaslı"
+      ],
+      "correctIndex": 2,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_1.pdf",
+        "location": "basılı s. 8, Çalışma Kâğıdı 2, kodlama ifadesi 6",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB çalışma kâğıdındaki alt görev kısa dört şıklı soruya uyarlandı; genel yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynağın “Oynamaz eklemler sınırlı hareket eder” ifadesi yanlıştır; kafatasındaki eklemler oynamaz gruptadır."
+      }
+    },
+    {
+      "stem": "İskeletin yapısında aşağıdakilerin hangisi birlikte bulunur?",
+      "options": [
+        "Kemik, kıkırdak ve eklem",
+        "Kemik, akciğer ve damar",
+        "Kas, deri ve sinir",
+        "Kalp, mide ve kemik"
+      ],
+      "correctIndex": 0,
+      "source": {
+        "kind": "MEB",
+        "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_1.pdf",
+        "location": "basılı s. 8, Çalışma Kâğıdı 2, kodlama ifadesi 8",
+        "permission": "Öğretmenin sınıf içi kullanım talebiyle MEB çalışma kâğıdındaki alt görev kısa dört şıklı soruya uyarlandı; genel yeniden dağıtım izni doğrulanmadı.",
+        "answerEvidence": "Kaynağın 8. ifadesinde iskeletin kemik, kıkırdak ve eklemlerden oluştuğu belirtilir."
+      }
+    }
+  ]
+}

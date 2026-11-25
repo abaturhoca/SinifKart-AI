@@ -1,0 +1,83 @@
+<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SınıfKart AI</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f4ec;color:#153934;font:16px/1.5 system-ui,sans-serif}header,main{max-width:1080px;margin:auto;padding:24px}header{border-bottom:2px solid #214f49;display:flex;align-items:center;justify-content:space-between}header b{font-size:26px}header span{color:#4f635b}h1{font-size:clamp(34px,5vw,58px);letter-spacing:-.055em;margin:16px 0 22px}h2{font-size:23px;margin:0 0 14px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px}section{padding:22px;background:white;border:1px solid #cbd4c9;border-radius:14px;margin:0 0 18px}label{display:block;margin:10px 0;font-weight:600}input,textarea,select{width:100%;border:1px solid #839b90;border-radius:5px;padding:9px;font:inherit}textarea{resize:vertical}button,.action{display:inline-block;font:inherit;cursor:pointer;background:#19574b;color:white;border:0;border-radius:6px;padding:10px 15px;margin:4px 6px 4px 0;text-decoration:none}button:hover,.action:hover{background:#12483e}:focus-visible{outline:3px solid #da8000;outline-offset:2px}output{display:block;color:#872d20}table{border-collapse:collapse;width:100%}th,td{text-align:left;border-bottom:1px solid #ddd;padding:6px}.card{text-align:center;width:175mm;height:240mm;break-inside:avoid;break-after:page;margin:auto;display:grid;grid-template-columns:12% 76% 12%;align-content:center;align-items:center;background:#fff;color:#000}.card b{font-size:28pt}.card p,.card strong{grid-column:1/-1}.card svg{width:100%}.card strong{font-size:20pt}#print{display:none}dialog{width:min(94vw,1200px);border:none;padding:4vw;border-radius:12px;color:#123930}dialog h2{font-size:clamp(32px,5vw,74px)}dialog li{font-size:clamp(22px,3vw,46px);margin:12px}dialog::backdrop{background:#16322fee}@page{size:A4 portrait;margin:10mm}@media print{body>*{display:none!important}body>#print{display:block!important}.card:last-child{break-after:auto}}
+</style><header><b>SınıfKart AI</b><span>Öğretmen paneli</span></header><main><h1>Sınıf çalışması</h1><p><a href="/web/">CSV sınıf listesi ve fotoğraftan kart okuma</a></p><output id="msg" role="status"></output>
+<div class="grid"><section><h2>Sınıflarım</h2><label>Aktif sınıf<select id="classes"></select></label><button id="archiveClass">Sınıfı arşivle</button><button id="printBtn">Kartları yazdır / PDF</button>
+<details><summary>Kart atamalarıyla sınıf al</summary><label>Sınıf adı<input id="mappedName" maxlength="80"></label><label>CSV dosyası (number, name, cardId)<input id="mappedFile" type="file" accept=".csv"></label><button id="fromBrowser">Bu tarayıcıda kayıtlı listeyi kullan</button></details><details><summary>Öğrenci nakli</summary><form id="transferForm"><label>Mevcut öğrenci numarası<input id="oldNumber" required></label><label>Yeni öğrenci numarası<input id="newNumber" required></label><label>Yeni öğrenci adı<input id="newName" required></label><label>Kart numarası<input type="number" min="1" max="100" id="newCard" required></label><button>Nakli kaydet</button></form></details><details open><summary>Sınıf oluştur</summary><form id="classForm"><label>Sınıf adı<input id="name" required maxlength="80" placeholder="6-A"></label><label>Öğrenciler<textarea id="names" required rows="5" placeholder="Her satıra bir ad veya rumuz"></textarea></label><button>Sınıfı kaydet</button></form></details></section>
+<section><h2>Yeni soru</h2><label>Soru bankasından seç<select id="bank"></select></label><form id="question"><label>Sınav adı<input id="exam" maxlength="100" value="Genel" required></label><label>Kazanım<input id="outcome" maxlength="180"></label><label>Soru<textarea id="title" required maxlength="600" rows="2"></textarea></label><label>Seçenek sayısı<select id="optionCount"><option>4</option><option>3</option><option>2</option></select></label><button type="button" id="draft">Kazanımdan soru taslağı üret (yerel Ollama)</button><div id="opts"></div><label>Doğru cevap<select id="correct"><option>A</option><option>B</option><option>C</option><option>D</option></select></label><button>Soru oturumu oluştur</button></form></section></div>
+<section><h2>Soru oturumları</h2><label>Sınav dosyasını seçili sınıfa ekle<input id="examFile" type="file" accept=".json"></label><label>Oturum<select id="sessions"></select></label><div id="controls" hidden><a class="action" id="project" target="_blank" rel="noopener">Ayrı tahta penceresi</a><a class="action" id="examFileOut">Sınav sorularını paylaşmak için indir</a><button id="present">Tahtada göster</button><a id="scan" class="action">Telefon için tarayıcı indir</a><label>Cevap dosyasını aktar<input type="file" id="import" accept=".json,application/json"></label><a class="action" id="csv">Sonuçları indir (CSV)</a><a class="action" id="xlsx">Sınavı Excel olarak indir</a><a class="action" target="_blank" rel="noopener" id="paper">Sınavı yazdır / PDF</a><a class="action" id="packet">Android oturum dosyası</a><p id="summary"></p><table><thead><tr><th>Kart</th><th>Öğrenci</th><th>Cevap</th><th>Puan</th></tr></thead><tbody id="scores"></tbody></table></div></section></main>
+<dialog id="board"><h2 id="boardTitle"></h2><ol type="A" id="boardOpts"></ol><button id="close">Panele dön</button></dialog><div id="print"></div>
+<script src="/engine.js"></script><script>
+const $=id=>document.getElementById(id), make=(tag,text)=>{const e=document.createElement(tag);e.textContent=text;return e};
+let state={classes:[],sessions:[]};
+for(const a of "ABCD"){const l=make("label",a),i=document.createElement("input");i.required=true;i.maxLength=250;l.append(i);$("opts").append(l)}
+function optionCount(){
+ const count=Number($("optionCount").value)
+ Array.from($("opts").children).forEach((label,i)=>{label.hidden=i>=count;label.querySelector("input").disabled=i>=count})
+ choices($("correct"),Array.from("ABCD".slice(0,count),v=>[v,v]))
+}
+$("optionCount").onchange=optionCount
+async function req(url,data){const r=await fetch(url,data?{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}:{});const x=await r.json();if(!r.ok)throw Error(x.error||"İşlem başarısız.");return x}
+function run(fn){return async e=>{e?.preventDefault();try{await fn(e)}catch(err){$("msg").textContent=err.message}}}
+function choices(el,items){el.replaceChildren(...items.map(([v,t])=>new Option(t,v)))}
+async function load(cid,token){state=await req("/state");choices($("bank"),[["","Yeni soru"],...state.sessions.map(s=>[s.token,s.title])]);choices($("classes"),state.classes.map(c=>[c.id,c.name]));if(cid)$("classes").value=cid;await sessions(token)}
+async function sessions(token){choices($("sessions"),state.sessions.filter(s=>s.class_id===$("classes").value*1).map(s=>[s.token,s.title]));if(token)$("sessions").value=token;await report()}
+async function report(){const t=$("sessions").value;$("controls").hidden=!t;if(!t)return;
+ $("project").href="/projection/"+t;$("examFileOut").href="/exam-export/"+t;$("xlsx").href="/xlsx/"+t;$("paper").href="/print-report/"+t;$("packet").href="/packet/"+t;$("scan").href="/scan/"+t;$("csv").href="/csv/"+t;const rows=await req("/result/"+t);if(t!==$("sessions").value)return;
+ $("scores").replaceChildren(...rows.map(row=>{const tr=document.createElement("tr");row.forEach(v=>tr.append(make("td",v===""||v===null?"—":v)));return tr}));
+ $("summary").textContent=rows.filter(r=>r[2]).length+" / "+rows.length+" cevap · "+rows.filter(r=>r[3]===1).length+" doğru";}
+$("bank").onchange=()=>{
+ const s=state.sessions.find(s=>s.token===$("bank").value)
+ if(!s)return
+ if(s.exam)$("exam").value=s.exam;$("outcome").value=s.outcome||"";const opts=JSON.parse(s.opts);$("optionCount").value=opts.length;optionCount()
+ $("title").value=s.title;Array.from($("opts").querySelectorAll("input")).forEach((input,i)=>input.value=opts[i]||"")
+ $("correct").value=s.correct
+};
+$("classes").onchange=run(()=>sessions());$("sessions").onchange=run(report);
+$("classForm").onsubmit=run(async()=>{await req("/class",{name:$("name").value,names:$("names").value.split(/\r?\n/).map(s=>s.trim()).filter(Boolean)});$("classForm").reset();await load();$("msg").textContent="Sınıf kaydedildi."});
+$("question").onsubmit=run(async()=>{const cid=$("classes").value;const s=await req("/session",{class_id:+cid,exam:$("exam").value,outcome:$("outcome").value,title:$("title").value,opts:[...$("opts").querySelectorAll("input:enabled")].map(i=>i.value),correct:$("correct").value});await load(cid,s.token);$("question").reset();optionCount();$("msg").textContent="Oturum açıldı."});
+$("present").onclick=()=>{const s=state.sessions.find(s=>s.token===$("sessions").value);$("boardTitle").textContent=s.title;$("boardOpts").replaceChildren(...JSON.parse(s.opts).map(v=>make("li",v)));$("board").showModal();$("board").requestFullscreen?.().catch(()=>{})};
+$("close").onclick=()=>{if(document.fullscreenElement)document.exitFullscreen();$("board").close()};
+$("import").onchange=run(async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;const data=JSON.parse(await f.text());if((data.sessionId??data.token)!==$("sessions").value)throw Error("Dosya seçili soru oturumuna ait değil.");await req("/import",data);await report();$("msg").textContent="Cevaplar kaydedildi."});
+$("printBtn").onclick=run(()=>{const c=state.classes.find(c=>c.id===+$("classes").value);if(!c)throw Error("Önce sınıf oluşturun.");$("print").replaceChildren(...(c.students?JSON.parse(c.students).map(s=>s.cardId):JSON.parse(c.roster).map((_,i)=>i+1)).map(card=>{const div=make("div","");div.className="card";div.innerHTML="<strong>SınıfKart · "+card+"</strong><p><b>A</b></p><b>B</b>"+Kart.svg(card)+"<b>D</b><p><b>C</b></p>";return div}));window.print()});
+$("draft").onclick=run(async()=>{
+ const topic=$("outcome").value.trim();
+ if(!topic)throw Error("Önce kazanımı girin.");
+ $("draft").disabled=true;
+ try{
+  const q=await req("/draft",{topic});
+  $("optionCount").value=4;optionCount();$("title").value=q.title;
+  Array.from($("opts").querySelectorAll("input")).forEach((input,i)=>input.value=q.opts[i]);
+  $("correct").value=q.correct;$("msg").textContent="Taslağı ve cevap anahtarını kontrol ederek kaydedin.";
+ } finally { $("draft").disabled=false; }
+});
+$("examFile").onchange=run(async e=>{
+ const file=e.target.files[0];e.target.value="";if(!file)return;
+ const packet=JSON.parse(await file.text()),cid=+$("classes").value;
+ const exam=window.prompt("Sınav adı",packet.exam||"");if(!exam)return;
+ const result=await req("/exam-import",{...packet,exam,class_id:cid});
+ await load(cid,result.tokens[0]);$("msg").textContent=result.tokens.length+" soru aktarıldı.";
+});
+async function addMapped(students){
+ const result=await req("/class",{name:$("mappedName").value,students});await load(result.class_id);
+ $("msg").textContent=students.length+" öğrenci kart atamalarıyla kaydedildi.";
+}
+$("fromBrowser").onclick=run(async()=>{const {loadRoster}=await import("/session.js");await addMapped(await loadRoster())});
+$("mappedFile").onchange=run(async e=>{
+ const f=e.target.files[0];e.target.value="";if(!f)return;
+ const {parseRoster}=await import("/roster.js");await addMapped(parseRoster(await f.text()));
+});
+$("archiveClass").onclick=run(async()=>{
+ const cid=+$("classes").value;
+ if(!cid)throw Error("Önce sınıf seçin.");
+ if(!confirm("Seçili sınıf arşivlensin mi? Eski sonuçlar erişilebilir kalır."))return;
+ await req("/archive",{class_id:cid});await load(cid);$("msg").textContent="Sınıf arşivlendi.";
+});
+$("transferForm").onsubmit=run(async()=>{
+ const cid=+$("classes").value;
+ await req("/transfer",{class_id:cid,number:$("oldNumber").value,
+   student:{number:$("newNumber").value,name:$("newName").value,cardId:+$("newCard").value}});
+ await load(cid);$("msg").textContent="Nakil kaydedildi. Önceki sınavlar eski öğrenciyi gösterir.";
+});
+run(load)();
+</script></html>

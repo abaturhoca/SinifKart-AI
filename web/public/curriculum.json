@@ -1,0 +1,489 @@
+[
+  {
+    "grade": 5,
+    "unit": 1,
+    "name": "Gökyüzündeki Komşularımız ve Biz",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/367",
+    "outcomes": [
+      {
+        "code": "FB.5.1.1",
+        "title": "Güneş’in yapısı ve dönme hareketi ile ilgili bilgi toplayabilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_1_1.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      },
+      {
+        "code": "FB.5.1.2",
+        "title": "Ay’ın özellikleri, dönme ve dolanma hareketleri ile ilgili bilimsel çıkarım yapabilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_2_1.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      },
+      {
+        "code": "FB.5.1.3",
+        "title": "Ay’ın evrelerini temsil eden bilimsel model oluşturabilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_2_2.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      },
+      {
+        "code": "FB.5.1.4",
+        "title": "Güneş, Dünya ve Ay’ın birbirlerine göre hareketlerini ve hacimsel büyüklüklerini temsil eden bilimsel model oluşturabilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen1_3_1.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      }
+    ]
+  },
+  {
+    "grade": 5,
+    "unit": 2,
+    "name": "Kuvveti Tanıyalım",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/368",
+    "outcomes": [
+      {
+        "code": "FB.5.2.1",
+        "title": "Kuvveti büyüklüğü ile operasyonel tanımlayabilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_1.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      },
+      {
+        "code": "FB.5.2.2",
+        "title": "Basit araç gereçle bilimsel bir dinamometre modeli oluşturabilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_1_2.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      },
+      {
+        "code": "FB.5.2.3",
+        "title": "Kütle ve ağırlık kavramlarını karşılaştırabilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_2_1.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      },
+      {
+        "code": "FB.5.2.4",
+        "title": "Sürtünme kuvvetinin çeşitli ortamlardaki etkilerine yönelik tümevarımsal akıl yürütebilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen2_3_1.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      }
+    ]
+  },
+  {
+    "grade": 5,
+    "unit": 3,
+    "name": "Canlıların Yapısına Yolculuk",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/388",
+    "outcomes": [
+      {
+        "code": "FB.5.3.1",
+        "title": "Bitki ve hayvan hücrelerini temel kısımları ve özellikleri açısından karşılaştırabilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_1.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      },
+      {
+        "code": "FB.5.3.2",
+        "title": "Hücre-doku-organ-sistem-organizma kavramlarını yapılandırabilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_1_2.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      },
+      {
+        "code": "FB.5.3.3",
+        "title": "Destek ve hareket sistemine ait yapıları sınıflandırabilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_1.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      },
+      {
+        "code": "FB.5.3.4",
+        "title": "Destek ve hareket sisteminin sağlığı için yapılması gerekenler konusunda bilgi toplayabilme",
+        "targetQuestions": 10,
+        "candidateSource": {
+          "name": "MEB öğrenme çıktısı ölçme aracı (2024 kodlarıyla; güncel çıktı başlığına göre eşlendi)",
+          "url": "https://cdn.eba.gov.tr/yardimcikaynaklar/2024/09/olcmearaclari/5fen3_2_2.pdf",
+          "status": "Soru ve dört kısa şık doğrulanmadı; doğrudan test içeriği değildir"
+        }
+      }
+    ]
+  },
+  {
+    "grade": 5,
+    "unit": 4,
+    "name": "Işığın Dünyası",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/399",
+    "outcomes": [
+      {
+        "code": "FB.5.4.1",
+        "title": "Bir kaynaktan çıkan ışığın her yönde doğrusal bir yol izlediğini bilimsel olarak gözlemleyebilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.5.4.2",
+        "title": "Maddeleri ışığı geçirme durumlarına göre sınıflandırabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.5.4.3",
+        "title": "Tam gölgeyi bilimsel olarak gözlemleyebilme",
+        "targetQuestions": 10
+      }
+    ]
+  },
+  {
+    "grade": 5,
+    "unit": 5,
+    "name": "Maddenin Doğası",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/404",
+    "outcomes": [
+      {
+        "code": "FB.5.5.1",
+        "title": "Maddeleri tanecikli, boşluklu ve hareketli yapısına göre sınıflandırabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.5.5.2",
+        "title": "Isı ve sıcaklık kavramlarını karşılaştırabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.5.5.3",
+        "title": "Sıcaklığı farklı olan sıvıların karıştırılması sonucu ısı alışverişi olduğuna yönelik bilimsel çıkarım yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.5.5.4",
+        "title": "Maddenin ısı etkisiyle hâl değiştirebileceğini bilimsel gözleme dayalı tahmin edebilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.5.5.5",
+        "title": "Maddeleri ısı iletimi bakımından sınıflandırabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.5.5.6",
+        "title": "Isı yalıtımını gösteren bilimsel model oluşturabilme",
+        "targetQuestions": 10
+      }
+    ]
+  },
+  {
+    "grade": 5,
+    "unit": 6,
+    "name": "Yaşamımızdaki Elektrik",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/407",
+    "outcomes": [
+      {
+        "code": "FB.5.6.1",
+        "title": "Bir elektrik devresindeki elemanları sembollerinin olup olmamasına göre sınıflandırabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.5.6.2",
+        "title": "Şemasını çizdiği elektrik devresine uygun deney yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.5.6.3",
+        "title": "Bir elektrik devresindeki ampul parlaklığını etkileyen değişkenlerin neler olduğuna ilişkin hipotez oluşturabilme",
+        "targetQuestions": 10
+      }
+    ]
+  },
+  {
+    "grade": 5,
+    "unit": 7,
+    "name": "Sürdürülebilir Yaşam ve Geri Dönüşüm",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/408",
+    "outcomes": [
+      {
+        "code": "FB.5.7.1",
+        "title": "Evsel atıklarda geri dönüştürülebilen ve dönüştürülemeyen maddeleri sınıflandırabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.5.7.2",
+        "title": "Kaynakların etkili kullanımı konusunda geri dönüşümün önemli olduğuna yönelik bilimsel çıkarım yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.5.7.3",
+        "title": "Yakın çevresinde atık yönetiminin uygulanabilirliğine ilişkin deneyimlerini yansıtabilme",
+        "targetQuestions": 10
+      }
+    ]
+  },
+  {
+    "grade": 6,
+    "unit": 1,
+    "name": "Güneş Sistemi ve Tutulmalar",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/409",
+    "outcomes": [
+      {
+        "code": "FB.6.1.1",
+        "title": "Güneş sistemindeki gezegenleri niteliklerine göre sınıflandırabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.1.2",
+        "title": "Güneş sistemi ile ilgili bilimsel model oluşturabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.1.3",
+        "title": "Güneş ve Ay tutulması ile ilgili bilimsel çıkarım yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.1.4",
+        "title": "Güneş ve Ay tutulması ile ilgili bilimsel model oluşturabilme",
+        "targetQuestions": 10
+      }
+    ]
+  },
+  {
+    "grade": 6,
+    "unit": 2,
+    "name": "Kuvvetin Etkisinde Hareket",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/410",
+    "outcomes": [
+      {
+        "code": "FB.6.2.1",
+        "title": "Bir cisme etki eden aynı doğrultudaki kuvvetler arasındaki ilişkileri açıklayarak bileşke kuvveti yapılandırabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.2.2",
+        "title": "Dengelenmiş ve dengelenmemiş kuvvetlerin etkisi altındaki bir cismin hareketine yönelik deney yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.2.3",
+        "title": "Sürat ve hız kavramlarını karşılaştırabilme",
+        "targetQuestions": 10
+      }
+    ]
+  },
+  {
+    "grade": 6,
+    "unit": 3,
+    "name": "Canlılarda Sistemler",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/411",
+    "outcomes": [
+      {
+        "code": "FB.6.3.1",
+        "title": "Eşeyli ve eşeysiz üremeyi karşılaştırabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.3.2",
+        "title": "Bitkilerde üreme, büyüme ve gelişme hakkında bilimsel çıkarım yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.3.3",
+        "title": "Tohumun çimlenmesine etki eden faktörlere ilişkin hipotez oluşturabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.3.4",
+        "title": "Hayvanlarda üreme, büyüme ve gelişme hakkında bilimsel çıkarım yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.3.5",
+        "title": "İnsanda üremeyi sağlayan yapı ve organlar arasındaki ilişkileri çözümleyebilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.3.6",
+        "title": "Sinir sisteminin görevlerini model üzerinde bilimsel olarak gözlemleyebilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.3.7",
+        "title": "İç salgı bezlerinin vücut için önemini yapılandırabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.3.8",
+        "title": "Çocukluktan ergenliğe geçişte oluşan bedensel ve ruhsal değişimleri genelleyebilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.3.9",
+        "title": "Denetleyici ve düzenleyici sistemlerin sağlığı için yapılması gerekenlerle ilgili bilgi toplayabilme",
+        "targetQuestions": 10
+      }
+    ]
+  },
+  {
+    "grade": 6,
+    "unit": 4,
+    "name": "Işığın Yansıması ve Renkler",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/412",
+    "outcomes": [
+      {
+        "code": "FB.6.4.1",
+        "title": "Işığın farklı yüzeylerdeki yansıma olaylarına ilişkin bilimsel çıkarım yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.4.2",
+        "title": "Işığın yansımasında gelen ışın, yansıyan ışın ve yüzeyin normali arasındaki ilişki ile ilgili kanıt kullanabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.4.3",
+        "title": "Günlük hayattaki ayna çeşitlerine ilişkin bilimsel çıkarım yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.4.4",
+        "title": "Işığın madde ile etkileşimi sonucunda soğurulabileceğini bilimsel olarak gözlemleyebilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.4.5",
+        "title": "Beyaz ışığın tüm ışık renklerinin bileşiminden oluştuğuna ilişkin bilimsel çıkarım yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.4.6",
+        "title": "Cisimlerin siyah, beyaz ve renkli görünmesinin nedenini gözlem verileriyle açıklayabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.4.7",
+        "title": "Güneş enerjisinin günlük hayat ve teknolojideki yenilikçi uygulamalarına ilişkin eleştirel düşünebilme",
+        "targetQuestions": 10
+      }
+    ]
+  },
+  {
+    "grade": 6,
+    "unit": 5,
+    "name": "Maddenin Ayırt Edici Özellikleri",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/413",
+    "outcomes": [
+      {
+        "code": "FB.6.5.1",
+        "title": "Isı etkisiyle maddelerin genleşip büzüleceğine yönelik bilimsel gözleme dayalı tahmin edebilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.5.2",
+        "title": "Maddelerin erime, donma ve kaynama noktasını gösteren deney yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.5.3",
+        "title": "Yoğunluğa ilişkin hesaplamalar yaparak bilimsel veriye dayalı tahmin edebilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.5.4",
+        "title": "Deneyler sonucunda çeşitli maddelerin yoğunluklarına ilişkin tümdengelimsel akıl yürütebilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.5.5",
+        "title": "Suyun katı ve sıvı hâllerine ait yoğunlukları karşılaştırarak bu durumun canlılar için önemi hakkında bilimsel çıkarımlar yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.5.6",
+        "title": "Yoğunluk ile ilgili bilimsel model oluşturabilme",
+        "targetQuestions": 10
+      }
+    ]
+  },
+  {
+    "grade": 6,
+    "unit": 6,
+    "name": "Elektriğin İletimi ve Direnç",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/414",
+    "outcomes": [
+      {
+        "code": "FB.6.6.1",
+        "title": "Maddelerin elektriği iletme durumlarını gösteren deney yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.6.2",
+        "title": "Elektrik devresindeki ampulün parlaklığının bağlı olduğu değişkenleri belirlemeye yönelik deney yapabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.6.3",
+        "title": "Ayarlanabilir direncin ampulün parlaklığına etkilerine yönelik bilimsel çıkarım yapabilme",
+        "targetQuestions": 10
+      }
+    ]
+  },
+  {
+    "grade": 6,
+    "unit": 7,
+    "name": "Sürdürülebilir Yaşam ve Etkileşim",
+    "curriculumUrl": "https://tymm.meb.gov.tr/fen-bilimleri-dersi/unite/415",
+    "outcomes": [
+      {
+        "code": "FB.6.7.1",
+        "title": "Biyoçeşitliliğin doğal yaşam için önemini sorgulayabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.7.2",
+        "title": "Biyoçeşitliliği tehdit eden faktörleri araştırma verilerine dayalı tahmin edebilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.7.3",
+        "title": "Isınma amaçlı yakıt kullanımının insan ve çevre üzerine etkilerini tartışabilme",
+        "targetQuestions": 10
+      },
+      {
+        "code": "FB.6.7.4",
+        "title": "Yakın çevresindeki veya ülkemizdeki bir çevre problemini çözebilme",
+        "targetQuestions": 10
+      }
+    ]
+  }
+]

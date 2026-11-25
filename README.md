@@ -9,5 +9,9 @@
 - Android APK derleme iş akışı `.github/workflows/android-apk.yml`, kullanım ve prototip sınırları `android/DERLEME.md` içindedir.
 - H1 sonuçları docs/H1-test.md içinde yer alır.
 
+Basılabilir kart PDF/SVG dosyaları ve sentetik kamera görüntüleri kaynak depoda tutulmaz.
+Python bağımlılıklarını kurduktan sonra `python reference/cards.py` ve
+`python reference/test_detection.py` ile `reference/output` yeniden üretilir.
+
 ## Çevrimdışı H1 ekranı
 web klasöründe `python yerel_panel.py` öğretmen panelini açar. Tarayıcı aynı adres ve profille açıldığında kayıt sürdürülebilir. Yeniden başlatma testi için `python test_yerel_panel.py TARAYICI_YOLU` komutu kullanılır. Hibrit klasörü depo kökü olduğunda .github/workflows/h1.yml Vite geliştirme sunucusunu, üretim derlemesini ve şema testlerini çalıştırır.

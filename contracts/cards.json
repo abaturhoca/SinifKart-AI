@@ -1,0 +1,12 @@
+{
+  "dictionary": "DICT_4X4_250",
+  "firstCard": 1,
+  "count": 100,
+  "clockwiseAnswers": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "boundaryMarginDegrees": 10
+}

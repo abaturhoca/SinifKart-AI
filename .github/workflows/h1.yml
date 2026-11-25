@@ -1,0 +1,33 @@
+name: H1 kabul testleri
+on: [push, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+        working-directory: web
+      - run: npm run build
+        working-directory: web
+      - shell: pwsh
+        run: ./contracts/test.ps1
+      - name: Vite geliştirme sunucusunu denetle
+        working-directory: web
+        run: |
+          npm run dev -- --port 5173 --strictPort &
+          server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          curl --retry 12 --retry-connrefused --retry-delay 1 -fsS http://127.0.0.1:5173/ | grep -q '/src/main.tsx'
+          curl -fsS http://127.0.0.1:5173/src/main.tsx > /dev/null
+      - run: python3 web/test_yerel_panel.py "$(command -v google-chrome)"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sinifkart-web
+          path: web/dist/
+          retention-days: 1

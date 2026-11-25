@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "sessionId",
+    "questionId",
+    "responses"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "sessionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "questionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "responses": {
+      "type": "array",
+      "maxItems": 100,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "cardId",
+          "answer"
+        ],
+        "properties": {
+          "cardId": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "answer": {
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

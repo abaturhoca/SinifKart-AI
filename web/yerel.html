@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SınıfKart AI · Öğretmen paneli</title>
+<link rel="stylesheet" href="./src/style.css">
+</head>
+<body><header>SınıfKart AI</header><main><section>
+<h1>Öğretmen paneli</h1>
+<p role="status">Yerel kayıt açılıyor…</p>
+</section></main>
+<script type="module">
+import { openDraft } from './src/session.js'
+const status = document.querySelector('[role=status]')
+try {
+  const startedAt = await openDraft()
+  const time = document.createElement('time')
+  time.dateTime = startedAt
+  time.textContent = new Date(startedAt).toLocaleString('tr-TR')
+  status.replaceChildren('Çalışma oturumu · ', time)
+} catch {
+  status.textContent = 'Yerel kayıt açılamadı. Tarayıcı depolama izinlerini kontrol edin.'
+}
+</script></body></html>

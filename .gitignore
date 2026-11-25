@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.venv/
+.gradle/
+**/build/
+local.properties
+__pycache__/
+pilot/Veri/
+reference/output/

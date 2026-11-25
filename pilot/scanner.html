@@ -1,0 +1,106 @@
+<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SınıfKart · Tarama</title>
+<style>*{box-sizing:border-box}body{background:#f6f5ee;color:#143d35;max-width:48rem;margin:auto;padding:1.2rem;font:17px/1.5 system-ui}button,label{font:inherit}button{background:#184e42;color:white;border:0;border-radius:.5rem;padding:.65rem 1rem;margin:.25rem}video{width:100%;max-height:40vh;background:#152e29}output{display:block;padding:.6rem 0}select{padding:.4rem}</style>
+<h1>Kartları tara</h1><p id="title"></p><button id="start">Kamerayı aç</button><button id="stop">Durdur</button><video playsinline muted></video>
+<label>Fotoğraftan oku <input id="photo" type="file" accept="image/*"></label>
+<output id="status" role="status">Hazırlanıyor…</output><p id="count"></p><details><summary>Cevapları gör ve düzelt</summary><div id="answers"></div></details>
+<button id="json">Cevap dosyasını indir</button><button id="csv">CSV indir</button>
+<script type="text/plain" id="engine">__ENGINE__</script>
+<script>
+'use strict'
+const packet=__PACKET__, el=id=>document.getElementById(id), video=document.querySelector('video')
+const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d',{willReadFrequently:true})
+const allowed=new Set(packet.cards), letters=packet.options||'ABCD'
+let saved={},streak=new Map(),db,worker,stream,timer,pending=false,epoch=0,chain=Promise.resolve()
+const message=t=>{el('status').textContent=t}
+el('title').textContent=packet.title
+function display(){
+  el('count').textContent=Object.keys(saved).length+' / '+allowed.size+' kart onaylandı'
+  el('answers').replaceChildren(...packet.cards.map(id=>{
+    const row=document.createElement('p'), select=document.createElement('select')
+    select.setAttribute('aria-label','Kart '+id+' cevabı')
+    for(const v of ['',...letters]) select.add(new Option(v||'Yanıtsız',v))
+    select.value=saved[id]||''
+    select.onchange=()=>{const value=select.value;queue(async()=>{const next={...saved};if(value)next[id]=value;else delete next[id];await persist(next)})}
+    row.append('Kart '+id+'  ',select);return row
+  }))
+}
+function queue(fn){chain=chain.then(fn).catch(e=>{message('Kayıt başarısız · '+e.message);display()});return chain}
+function persist(next){
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction('sessions','readwrite')
+    tx.objectStore('sessions').put(next,packet.token)
+    tx.oncomplete=()=>{saved=next;display();resolve()}
+    tx.onabort=()=>reject(tx.error||Error('Depolama dolu veya kapalı'))
+  })
+}
+function halt(){
+  epoch++;clearInterval(timer);stream?.getTracks().forEach(track=>track.stop());stream=null;video.srcObject=null
+  worker?.terminate();worker=null;pending=false;streak.clear()
+}
+function makeWorker(){
+  const url=URL.createObjectURL(new Blob([el('engine').textContent,
+    '\nonmessage=e=>{const {pixels,w,h}=e.data;postMessage(Kart.detect(pixels,w,h))}'],{type:'text/javascript'}))
+  try{return new Worker(url)}finally{URL.revokeObjectURL(url)}
+}
+function analyse(source,w,h,single){
+  if(pending||!w||!h)return
+  const factor=Math.min(1,1440/Math.max(w,h))
+  canvas.width=Math.round(w*factor);canvas.height=Math.round(h*factor)
+  ctx.drawImage(source,0,0,canvas.width,canvas.height)
+  const pixels=ctx.getImageData(0,0,canvas.width,canvas.height).data
+  const run=epoch
+  worker.onmessage=event=>queue(async()=>{
+    try{
+      if(run!==epoch)return
+      const batch=new Map(),current=new Map(),next={...saved},changes=[]
+      for(const hit of event.data){
+        if(allowed.has(hit.id)&&letters.includes(hit.answer))batch.set(hit.id,batch.has(hit.id)?null:hit.answer)
+      }
+      for(const [id,a] of batch){
+        if(!a)continue
+        const prior=streak.get(id),n=prior?.answer===a?prior.n+1:1
+        current.set(id,{answer:a,n})
+        if((single||n>=3)&&next[id]!==a){changes.push(id+' → '+a);next[id]=a}
+      }
+      streak=current
+      if(changes.length&&(!single||confirm('Bu okumaları kaydet?\n'+changes.join(', '))))await persist(next)
+      message('Görüntüde '+batch.size+' kart')
+    }finally{if(run===epoch)pending=false}
+  })
+  worker.onerror=()=>{halt();message('Görüntü işleyici açılamadı.')}
+  pending=true;worker.postMessage({pixels,w:canvas.width,h:canvas.height},[pixels.buffer])
+}
+el('start').onclick=async()=>{
+  halt();const run=epoch
+  try{
+    const camera=await navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:{ideal:'environment'},width:{ideal:1440}}})
+    if(run!==epoch){camera.getTracks().forEach(t=>t.stop());return}
+    stream=camera;video.srcObject=camera;await video.play();if(run!==epoch)return
+    worker=makeWorker();timer=setInterval(()=>{if(video.readyState>=2)analyse(video,video.videoWidth,video.videoHeight,false)},180)
+    message('Tarama açık')
+  }catch(e){if(run===epoch){halt();message('Kamera açılamadı. Fotoğraftan okuma seçeneğini kullanabilirsiniz.')}}}
+el('stop').onclick=()=>{halt();message('Tarama durdu')}
+window.addEventListener('pagehide',halt)
+el('photo').onchange=async event=>{
+  const file=event.target.files[0];if(!file)return
+  halt();const run=epoch,url=URL.createObjectURL(file)
+  try{const im=new Image();im.src=url;await im.decode();if(run!==epoch)return;worker=makeWorker();analyse(im,im.width,im.height,true)}
+  catch{message('Fotoğraf işlenemedi.')}finally{URL.revokeObjectURL(url);event.target.value=''}
+}
+function download(content,type,ext){
+  const url=URL.createObjectURL(new Blob([content],{type})),link=document.createElement('a')
+  link.href=url;link.download='cevap-'+packet.token.slice(0,8)+ext;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000)
+}
+el('json').onclick=()=>queue(()=>download(JSON.stringify({version:1,sessionId:packet.token,questionId:packet.token,responses:Object.entries(saved).map(([id,answer])=>({cardId:Number(id),answer}))}),'application/json','.json'))
+el('csv').onclick=()=>queue(()=>download('\ufeffKart;Cevap\r\n'+packet.cards.map(id=>id+';'+(saved[id]||'')).join('\r\n'),'text/csv','.csv'))
+for(const id of ['start','photo','json','csv'])el(id).disabled=true
+async function init(){
+  const request=indexedDB.open('sinifkart-4x4',1)
+  request.onupgradeneeded=()=>request.result.createObjectStore('sessions')
+  db=await new Promise((ok,fail)=>{request.onsuccess=()=>ok(request.result);request.onerror=()=>fail(request.error)})
+  const read=db.transaction('sessions').objectStore('sessions').get(packet.token)
+  saved=await new Promise((ok,fail)=>{read.onsuccess=()=>ok(read.result||{});read.onerror=()=>fail(read.error)})
+  display();for(const id of ['start','photo','json','csv'])el(id).disabled=false;message('Hazır')
+}
+init().catch(()=>message('Yerel kayıt açılamadı. Normal tarayıcı penceresinde açın.'))
+</script></html>
