@@ -4,7 +4,7 @@
 |---|---|---|
 |Liste|Boş satır, adaş, çakışan numara ve 101 kişilik dosyaları içe al.|Kapasite ve atama hatalarında kısmi yazma yok. Adaşlar ayrı kalır.|
 |Soru ve tahta|2, 3 ve 4 seçenekli soru aç, tahtayı ayrı pencerede izle.|Yalnız etkin seçenekler görünür. Anahtar, öğrenci adı ve bireysel puan açığa çıkmaz.|
-|H1|Web geliştirme sunucusuna HTTP isteği, üretim derlemesi, uygun ve bozuk kayıtlarla şema testi.|Sunucu yanıtı ve build başarılı, şema testleri geçer. Android derleme imkânı ayrıca raporlanır.|
+|H1|Web geliştirme sunucusuna HTTP isteği, üretim derlemesi, uygun ve bozuk kayıtlarla şema testi; gerçek tarayıcıda çevrimdışı/rapor ve erişilebilirlik-gizlilik denetimi.|Sunucu ve build başarılıdır; şema testleri geçer; panel açılışında dış ağa istek/çerez yoktur; etkileşimli öğeler adlandırılmış, klavye odağı görünür ve ana içerik yapısı geçerlidir. Android derleme imkânı ayrıca raporlanır.|
 |H2|100 basılı kart tasarımını dört yönde rasterleştir ve çöz.|400/400 doğru kimlik ve cevap, dört yönde tek kimlik. 70, 90, 110 mm baskı düzeni A4 içine sığar.|
 |H3|1, 5, 10, 20 ve 40 kartlık etiketli sentetik görüntüler, ışık ve geometri varyantları.|Temiz testlerde tam eşleşme, zor örneklerde kaçırma ve yanlış cevap ayrı raporlanır.|
 |H4|Aynı kartı tekrar göster, çevir, gizle, çakıştır, kamerayı kapat ve aç.|Kesin yanlış cevap sıfır, kayıt tekrarında sayım değişmez; çelişen yanıt otomatik üzerine yazılmaz. Kamera bırakılır.|

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build && node generate-sw.mjs",
-    "test:offline": "node test-offline-build.mjs"
+    "test:offline": "node test-offline-build.mjs",
+    "test:a11y-privacy": "node test-accessibility-privacy.mjs"
   },
   "dependencies": {
     "@techstark/opencv-js": "^5.0.0-release.1",

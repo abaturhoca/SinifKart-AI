@@ -187,7 +187,7 @@ function Panel() {
     link.href = url; link.download = reportFileName(sessionId, 'yazdir'); link.click()
     setTimeout(() => URL.revokeObjectURL(url), 1000)
   }
-  return <><header>SınıfKart AI</header><section><h1>Öğretmen paneli</h1><p role="status">{status}</p>{offlineStatus && <p aria-live="polite">{offlineStatus}</p>}
+  return <><header role="banner">SınıfKart AI</header><section id="teacher-panel" aria-labelledby="teacher-panel-title" tabIndex={-1}><h1 id="teacher-panel-title">Öğretmen paneli</h1><p role="status">{status}</p>{offlineStatus && <p aria-live="polite">{offlineStatus}</p>}
     <label>Oturum seç <select value={sessionId ?? ''} onChange={e => void switchSession(e.target.value)}>{sessions.map(id => <option key={id} value={id}>{new Date(id).toLocaleString('tr-TR')}</option>)}</select></label>
     <button disabled={!sessionId} onClick={() => void switchSession('', true)}>Yeni oturum başlat</button>
     <div><button disabled={!sessionId} onClick={() => void downloadBackup()}>Tam yerel yedeği indir</button>
