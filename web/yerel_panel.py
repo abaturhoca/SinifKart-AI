@@ -10,7 +10,7 @@ URL = "http://127.0.0.1:8766/yerel.html"
 
 class PanelHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path.split("?", 1)[0] not in ("/yerel.html", "/src/style.css", "/src/session.js"):
+        if self.path.split("?", 1)[0] not in ("/yerel.html", "/src/style.css", "/src/session.js", "/src/backup.js"):
             self.send_error(404)
             return
         super().do_GET()
