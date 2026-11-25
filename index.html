@@ -356,6 +356,20 @@ tr:last-child td { border-bottom: none; }
 }
 #sb-last-scanned.show { display: flex; }
 
+
+.live-3col { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.live-col { border: 1px solid var(--border); border-radius: 10px; background: var(--surface); overflow: hidden; }
+.live-col-head { padding: 9px 12px; font-weight: 800; font-size: 0.88rem; display: flex; justify-content: space-between; align-items: center; }
+.live-col-head.ok { background: #dcfce7; color: #14532d; border-bottom: 1px solid #86efac; }
+.live-col-head.bad { background: #fee2e2; color: #7f1d1d; border-bottom: 1px solid #fca5a5; }
+.live-col-head.none { background: #f1f5f9; color: #334155; border-bottom: 1px solid #cbd5e1; }
+.live-col-list { max-height: 240px; overflow-y: auto; padding: 6px 10px; font-size: 0.84rem; }
+.live-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 4px; border-bottom: 1px dashed var(--border); gap: 6px; }
+.live-row:last-child { border-bottom: none; }
+.qr-pair-wrap { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+#pair-qr-box { width: 132px; height: 132px; background: #fff; padding: 6px; border: 1px solid var(--border); border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+#pair-qr-box svg { width: 100%; height: 100%; display: block; }
+
 /* TOAST */
 #toast-box {
   position: fixed; bottom: 18px; right: 18px; z-index: 9000;
@@ -524,12 +538,17 @@ tr:last-child td { border-bottom: none; }
             <strong style="font-size:0.9rem;">Canlı Telefon ↔ Web Eşleştirme</strong>
             <span class="badge badge-blue" id="pair-room-badge">Oda: —</span>
           </div>
-          <div style="font-size:0.82rem;color:var(--muted);margin-bottom:8px;">
-            Telefonunuzda aşağıdaki bağlantıyı açtığınızda veya oda kodunu girdiğinizde üst çubukta <strong>Telefon Bağlı</strong> görünür ve taranan öğrencinin adı anında ekranda belirir (KVKK: öğrenci adları ağa gönderilmez).
-          </div>
-          <div class="session-group" style="margin-bottom:6px;">
-            <input type="text" id="pair-phone-url" readonly style="flex:1;min-width:180px;font-size:0.8rem;min-height:34px;" aria-label="Telefon bağlantı adresi">
-            <button type="button" class="btn btn-primary btn-sm" id="btn-copy-pair-url">Bağlantıyı Kopyala</button>
+          <div class="qr-pair-wrap" style="margin-bottom:8px;">
+            <div id="pair-qr-box" aria-label="Telefon eşleştirme karekodu"></div>
+            <div style="flex:1;min-width:180px;">
+              <div style="font-size:0.82rem;color:var(--muted);margin-bottom:8px;">
+                <strong>1 Saniyede Bağlan:</strong> Telefon kameranızı (veya Android APK'yı) bu karekoda tutun; üstte <strong>Telefon Bağlı</strong> yanar ve taranan öğrencinin adı anında ekranda görünür.
+              </div>
+              <div class="session-group" style="margin-bottom:6px;">
+                <input type="text" id="pair-phone-url" readonly style="flex:1;min-width:140px;font-size:0.78rem;min-height:34px;" aria-label="Telefon bağlantı adresi">
+                <button type="button" class="btn btn-primary btn-sm" id="btn-copy-pair-url">Kopyala</button>
+              </div>
+            </div>
           </div>
           <div class="session-group">
             <input type="text" id="pair-join-input" placeholder="Telefon modu: Oda kodu gir (Örn: SK1234)" style="flex:1;min-width:160px;font-size:0.82rem;min-height:34px;">
@@ -548,6 +567,21 @@ tr:last-child td { border-bottom: none; }
           </label>
           <button type="button" class="btn btn-danger btn-sm" id="btn-clear-q-responses">Bu Sorunun Yanıtlarını Temizle</button>
         </div>
+      </div>
+    </div>
+
+    <div class="live-3col" aria-live="polite">
+      <div class="live-col">
+        <div class="live-col-head ok"><span>Doğru Cevaplayanlar (Okuma Sırası)</span><span id="cnt-correct-col">0</span></div>
+        <div class="live-col-list" id="list-correct-col"></div>
+      </div>
+      <div class="live-col">
+        <div class="live-col-head bad"><span>Yanlış Cevaplayanlar (Okuma Sırası)</span><span id="cnt-wrong-col">0</span></div>
+        <div class="live-col-list" id="list-wrong-col"></div>
+      </div>
+      <div class="live-col">
+        <div class="live-col-head none"><span>Cevaplamayanlar</span><span id="cnt-unanswered-col">0</span></div>
+        <div class="live-col-list" id="list-unanswered-col"></div>
       </div>
     </div>
 
@@ -1319,10 +1353,12 @@ function recordAnswer(cardId, answer, source = 'manual') {
   }
   if (!sess.responses[q.id]) sess.responses[q.id] = {};
   const prev = sess.responses[q.id][cardId];
+  const nextSeq = Object.values(sess.responses[q.id]).reduce((m, r) => Math.max(m, r.scanSeq || 0), 0) + 1;
   sess.responses[q.id][cardId] = {
     answer,
     previousAnswer: prev ? prev.answer : null,
     updatedAt: new Date().toISOString(),
+    scanSeq: prev && prev.scanSeq ? prev.scanSeq : nextSeq,
     source,
     studentId: st.id
   };
@@ -1436,6 +1472,40 @@ function renderLive() {
   document.getElementById('scanner-unscanned-list').textContent = unscanned.length
     ? 'Taranmayan kartlar: ' + unscanned.slice(0, 18).map(s => '#' + s.cardId).join(', ') + (unscanned.length > 18 ? ` (+${unscanned.length - 18})` : '')
     : 'Tüm sınıf tarandı!';
+
+  // Render 3-column real-time lists in exact scan order
+  const correctList = [], wrongList = [], unansList = [];
+  const corLetter = LETTERS[q.correctIndex];
+  for (const st of cls.students) {
+    const rec = qResp[st.cardId];
+    if (!rec) { unansList.push(st); }
+    else if (rec.answer === corLetter) { correctList.push({ st, rec }); }
+    else { wrongList.push({ st, rec }); }
+  }
+  correctList.sort((a, b) => (a.rec.scanSeq || 9999) - (b.rec.scanSeq || 9999));
+  wrongList.sort((a, b) => (a.rec.scanSeq || 9999) - (b.rec.scanSeq || 9999));
+  const fmtT = iso => { try { return new Date(iso).toLocaleTimeString('tr-TR', { hour:'2-digit', minute:'2-digit', second:'2-digit' }); } catch(_) { return ''; } };
+  const cEl = document.getElementById('list-correct-col');
+  const wEl = document.getElementById('list-wrong-col');
+  const uEl = document.getElementById('list-unanswered-col');
+  if (cEl) {
+    document.getElementById('cnt-correct-col').textContent = correctList.length;
+    cEl.innerHTML = correctList.length
+      ? correctList.map((x, idx) => `<div class="live-row"><span><strong>${idx+1}.</strong> #${x.st.cardId} ${escHtml(x.st.name)}</span><span style="color:#15803d;font-weight:700;">${x.rec.answer} · ${fmtT(x.rec.updatedAt)}</span></div>`).join('')
+      : '<div style="color:var(--muted);padding:8px 0;">Henüz doğru yanıt yok.</div>';
+  }
+  if (wEl) {
+    document.getElementById('cnt-wrong-col').textContent = wrongList.length;
+    wEl.innerHTML = wrongList.length
+      ? wrongList.map((x, idx) => `<div class="live-row"><span><strong>${idx+1}.</strong> #${x.st.cardId} ${escHtml(x.st.name)}</span><span style="color:#b91c1c;font-weight:700;">${x.rec.answer} · ${fmtT(x.rec.updatedAt)}</span></div>`).join('')
+      : '<div style="color:var(--muted);padding:8px 0;">Yanlış yanıt yok.</div>';
+  }
+  if (uEl) {
+    document.getElementById('cnt-unanswered-col').textContent = unansList.length;
+    uEl.innerHTML = unansList.length
+      ? unansList.map(st => `<div class="live-row"><span>#${st.cardId} ${escHtml(st.name)}</span><span style="color:var(--muted);">Bekliyor</span></div>`).join('')
+      : '<div style="color:#15803d;font-weight:700;padding:8px 0;">Tüm öğrenciler yanıtladı!</div>';
+  }
 
   const grid = document.getElementById('live-student-grid');
   grid.innerHTML = cls.students.map(st => {
@@ -2433,6 +2503,125 @@ if (isAppUnlocked()) {
 }
 
 
+
+// === PURE-JS ISO/IEC 18004 QR CODE SVG GENERATOR (ZERO EXTERNAL DEPENDENCY) ===
+const QRGen = (() => {
+  const GF_EXP = new Uint8Array(512), GF_LOG = new Uint8Array(256);
+  let x = 1;
+  for (let i = 0; i < 255; i++) { GF_EXP[i] = x; GF_LOG[x] = i; x <<= 1; if (x & 0x100) x ^= 0x11d; }
+  for (let i = 255; i < 512; i++) GF_EXP[i] = GF_EXP[i - 255];
+  const gfMul = (a, b) => (a && b) ? GF_EXP[GF_LOG[a] + GF_LOG[b]] : 0;
+  function rsPoly(deg) {
+    let p = [1];
+    for (let i = 0; i < deg; i++) {
+      const q = [1, GF_EXP[i]], res = new Array(p.length + 1).fill(0);
+      for (let a = 0; a < p.length; a++) for (let b = 0; b < 2; b++) res[a + b] ^= gfMul(p[a], q[b]);
+      p = res;
+    }
+    return p;
+  }
+  function rsEncode(data, ecLen) {
+    const gen = rsPoly(ecLen), msg = data.concat(new Array(ecLen).fill(0));
+    for (let i = 0; i < data.length; i++) {
+      const coef = msg[i];
+      if (coef) for (let j = 0; j < gen.length; j++) msg[i + j] ^= gfMul(gen[j], coef);
+    }
+    return msg.slice(data.length);
+  }
+  // Version 1..5 ECC-L capacities (data codewords, ec codewords, align centers)
+  const VERS = [
+    null,
+    { n: 21, dc: 19, ec: 7, al: [] },
+    { n: 25, dc: 34, ec: 10, al: [6, 18] },
+    { n: 29, dc: 55, ec: 15, al: [6, 22] },
+    { n: 33, dc: 80, ec: 20, al: [6, 26] },
+    { n: 37, dc: 108, ec: 26, al: [6, 30] }
+  ];
+  function toSVG(text) {
+    const bytes = Array.from(new TextEncoder().encode(text));
+    let ver = 1;
+    while (ver <= 5 && bytes.length + 2 > VERS[ver].dc) ver++;
+    if (ver > 5) return '';
+    const { n, dc, ec, al } = VERS[ver];
+    const bits = [];
+    const pushBits = (val, len) => { for (let i = len - 1; i >= 0; i--) bits.push((val >> i) & 1); };
+    pushBits(0b0100, 4); pushBits(bytes.length, 8);
+    bytes.forEach(b => pushBits(b, 8));
+    pushBits(0, Math.min(4, dc * 8 - bits.length));
+    while (bits.length % 8) bits.push(0);
+    const data = [];
+    for (let i = 0; i < bits.length; i += 8) {
+      let b = 0; for (let k = 0; k < 8; k++) b = (b << 1) | bits[i + k]; data.push(b);
+    }
+    let pad = 0;
+    while (data.length < dc) data.push((pad++ & 1) ? 0x11 : 0xec);
+    const cw = data.concat(rsEncode(data, ec));
+
+    const mat = Array.from({ length: n }, () => new Int8Array(n)); // 0 empty, 1 dark, -1 light
+    const resv = Array.from({ length: n }, () => new Uint8Array(n));
+    const setMod = (r, c, dark, isRes = true) => {
+      if (r < 0 || c < 0 || r >= n || c >= n) return;
+      mat[r][c] = dark ? 1 : -1;
+      if (isRes) resv[r][c] = 1;
+    };
+    const drawFinder = (tr, tc) => {
+      for (let r = -1; r <= 7; r++) for (let c = -1; c <= 7; c++) {
+        const inBox = r >= 0 && r <= 6 && c >= 0 && c <= 6;
+        const dark = inBox && (r === 0 || r === 6 || c === 0 || c === 6 || (r >= 2 && r <= 4 && c >= 2 && c <= 4));
+        setMod(tr + r, tc + c, dark);
+      }
+    };
+    drawFinder(0, 0); drawFinder(0, n - 7); drawFinder(n - 7, 0);
+    for (let i = 8; i < n - 8; i++) { setMod(6, i, i % 2 === 0); setMod(i, 6, i % 2 === 0); }
+    for (const ar of al) for (const ac of al) {
+      if (resv[ar][ac]) continue;
+      for (let r = -2; r <= 2; r++) for (let c = -2; c <= 2; c++) {
+        setMod(ar + r, ac + c, Math.max(Math.abs(r), Math.abs(c)) !== 1);
+      }
+    }
+    setMod(n - 8, 8, true);
+    // Reserve format info cells
+    for (let i = 0; i < 9; i++) { resv[8][i] = 1; resv[i][8] = 1; }
+    for (let i = 0; i < 8; i++) { resv[8][n - 1 - i] = 1; resv[n - 1 - i][8] = 1; }
+
+    // Place data bits with Mask 0: (r + c) % 2 === 0
+    let bi = 0;
+    const totalBits = cw.length * 8;
+    for (let col = n - 1; col > 0; col -= 2) {
+      if (col === 6) col--;
+      const up = ((n - 1 - col) / 2) % 2 === 0;
+      for (let step = 0; step < n; step++) {
+        const r = up ? (n - 1 - step) : step;
+        for (let dx = 0; dx < 2; dx++) {
+          const c = col - dx;
+          if (resv[r][c]) continue;
+          const bit = bi < totalBits ? ((cw[bi >> 3] >> (7 - (bi & 7))) & 1) : 0;
+          bi++;
+          const masked = ((r + c) % 2 === 0) ? (bit ^ 1) : bit;
+          mat[r][c] = masked ? 1 : -1;
+        }
+      }
+    }
+    // Format info for ECC-L (01) + Mask 0 (000) -> 15-bit BCH = 0x77c4 (111011111000100)
+    const fmt = 0x77c4;
+    const fbit = i => (fmt >> (14 - i)) & 1;
+    const pos1 = [[8,0],[8,1],[8,2],[8,3],[8,4],[8,5],[8,7],[8,8],[7,8],[5,8],[4,8],[3,8],[2,8],[1,8],[0,8]];
+    const pos2 = [[n-1,8],[n-2,8],[n-3,8],[n-4,8],[n-5,8],[n-6,8],[n-7,8],[8,n-8],[8,n-7],[8,n-6],[8,n-5],[8,n-4],[8,n-3],[8,n-2],[8,n-1]];
+    for (let i = 0; i < 15; i++) {
+      const d = fbit(i) === 1;
+      mat[pos1[i][0]][pos1[i][1]] = d ? 1 : -1;
+      mat[pos2[i][0]][pos2[i][1]] = d ? 1 : -1;
+    }
+    const q = 4, sz = n + q * 2;
+    let rects = `<rect width="${sz}" height="${sz}" fill="#fff"/>`;
+    for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
+      if (mat[r][c] === 1) rects += `<rect x="${c + q}" y="${r + q}" width="1" height="1" fill="#000"/>`;
+    }
+    return `<svg viewBox="0 0 ${sz} ${sz}" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">${rects}</svg>`;
+  }
+  return { toSVG };
+})();
+
 // === LIVE SCANNED STUDENT BANNER + REAL-TIME PHONE <-> WEB SYNC ===
 const recentScanned = [];
 function showScannedStudentBanner(student, answer, source) {
@@ -2487,7 +2676,10 @@ function updatePairUI() {
   const base = (window.location.origin && window.location.origin !== 'null')
     ? (window.location.origin + window.location.pathname)
     : 'https://abaturhoca.github.io/SinifKart-AI/';
-  if (urlInp) urlInp.value = `${base}?telefon=${pairRoomCode}`;
+  const fullUrl = `${base}?telefon=${pairRoomCode}`;
+  if (urlInp) urlInp.value = fullUrl;
+  const qrBox = document.getElementById('pair-qr-box');
+  if (qrBox) qrBox.innerHTML = QRGen.toSVG(fullUrl);
   if (phoneSyncMode === 'host') updatePhoneBadge(Date.now() - phoneLastSeen < 35000);
 }
 
@@ -2520,24 +2712,41 @@ function handleIncomingSyncMessage(raw) {
   }
 }
 
+const seenSyncIds = new Set();
+let pollSince = Math.floor(Date.now() / 1000) - 5;
+function processNtfyEvent(outer) {
+  if (!outer || outer.event !== 'message' || !outer.message) return;
+  if (outer.id && seenSyncIds.has(outer.id)) return;
+  if (outer.id) seenSyncIds.add(outer.id);
+  if (outer.time && outer.time >= pollSince) pollSince = outer.time;
+  handleIncomingSyncMessage(outer.message);
+}
+let hostPollTimer = null;
 function startHostListener() {
   phoneSyncMode = 'host';
   if (phoneEventSource) { try { phoneEventSource.close(); } catch (_) {} }
+  if (hostPollTimer) { clearInterval(hostPollTimer); hostPollTimer = null; }
   updatePairUI();
   try {
-    phoneEventSource = new EventSource(`https://ntfy.sh/sinifkart_room_${pairRoomCode}/sse`);
+    phoneEventSource = new EventSource(`https://ntfy.sh/sinifkart_room_${pairRoomCode}/sse?since=${pollSince}`);
     phoneEventSource.onmessage = e => {
-      try {
-        const outer = JSON.parse(e.data);
-        if (outer && outer.message) handleIncomingSyncMessage(outer.message);
-      } catch (_) {}
+      try { processNtfyEvent(JSON.parse(e.data)); } catch (_) {}
     };
   } catch (_) {}
-  setInterval(() => {
-    if (phoneSyncMode === 'host' && phoneLastSeen > 0 && Date.now() - phoneLastSeen > 35000) {
+  // Reliable 2-second JSON poll fallback so NO scan from phone is ever missed!
+  hostPollTimer = setInterval(async () => {
+    if (phoneSyncMode !== 'host') return;
+    try {
+      const r = await fetch(`https://ntfy.sh/sinifkart_room_${pairRoomCode}/json?poll=1&since=${pollSince}`);
+      if (r.ok) {
+        const lines = (await r.text()).trim().split('\n').filter(Boolean);
+        for (const ln of lines) { try { processNtfyEvent(JSON.parse(ln)); } catch (_) {} }
+      }
+    } catch (_) {}
+    if (phoneLastSeen > 0 && Date.now() - phoneLastSeen > 40000) {
       updatePhoneBadge(false, `Telefon Bağlantısı Kesildi (${pairRoomCode})`);
     }
-  }, 8000);
+  }, 2000);
 }
 
 function connectAsPhone(code) {
@@ -2578,6 +2787,8 @@ document.getElementById('btn-join-as-phone').addEventListener('click', () => {
   try {
     const qRoom = new URLSearchParams(window.location.search).get('telefon');
     if (qRoom && /^SK\d{4}$/i.test(qRoom.trim())) {
+      // Phone scanner mode: unlock UI directly to camera tab without decrypting any student names (KVKK safe!)
+      document.getElementById('auth-gate').classList.add('unlocked');
       connectAsPhone(qRoom.trim().toUpperCase());
     } else {
       startHostListener();
