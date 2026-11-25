@@ -480,9 +480,9 @@ tr:last-child td { border-bottom: none; }
             <label class="field-label" for="sim-card-ans">Kart Yönü (Cevap)</label>
             <select id="sim-card-ans">
               <option value="A">A (0° Üst)</option>
-              <option value="B">B (90° Saat Yönü)</option>
+              <option value="B">B (B kenarı üstte)</option>
               <option value="C">C (180°)</option>
-              <option value="D">D (270°)</option>
+              <option value="D">D (D kenarı üstte)</option>
             </select>
           </div>
           <div style="display:flex;align-items:flex-end;">
@@ -1018,7 +1018,7 @@ function matchAruco16(bits16, maxHamming = 1) {
     for (let rot = 0; rot < 4; rot++) {
       const d = hamming16(bits16, ARUCO_LOOKUP[id][rot]);
       if (d <= maxHamming && (!best || d < best.dist)) {
-        best = { cardId: id + 1, rotIndex: rot, answer: LETTERS[rot], dist: d, confidence: d === 0 ? 0.99 : 0.88 };
+        best = { cardId: id + 1, rotIndex: rot, answer: LETTERS[(4 - rot) % 4], dist: d, confidence: d === 0 ? 0.99 : 0.88 };
         if (d === 0) return best;
       }
     }
@@ -1807,7 +1807,7 @@ document.getElementById('btn-stop-cam').addEventListener('click', stopCamera);
 document.getElementById('btn-test-aruco-card').addEventListener('click', () => {
   const cardId = Math.max(1, Math.min(100, Number(document.getElementById('sim-card-id').value) || 1));
   const ans = document.getElementById('sim-card-ans').value;
-  const rotIdx = LETTERS.indexOf(ans);
+  const rotIdx = (4 - LETTERS.indexOf(ans)) % 4;
   const canvas = document.getElementById('scanner-preview-canvas');
   canvas.width = 480; canvas.height = 360;
   const ctx = canvas.getContext('2d');
