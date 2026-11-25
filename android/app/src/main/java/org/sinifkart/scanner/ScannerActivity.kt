@@ -4,11 +4,13 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.InputType
 import android.view.ViewGroup
+import android.view.WindowInsets
 import android.widget.*
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
@@ -16,8 +18,6 @@ import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import org.json.JSONArray
 import org.json.JSONObject
 import org.opencv.android.OpenCVLoader
@@ -97,11 +97,14 @@ class ScannerActivity : ComponentActivity() {
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(Color.parseColor("#0F172A"))
             fitsSystemWindows = true
+            setPadding(dp(12), dp(48), dp(12), dp(12))
         }
-        ViewCompat.setOnApplyWindowInsetsListener(root) { v, insets ->
-            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(dp(12), bars.top + dp(12), dp(12), bars.bottom + dp(8))
-            insets
+        if (Build.VERSION.SDK_INT >= 30) {
+            root.setOnApplyWindowInsetsListener { v, insets ->
+                val bars = insets.getInsets(WindowInsets.Type.systemBars())
+                v.setPadding(dp(12), max(bars.top, dp(36)) + dp(10), dp(12), bars.bottom + dp(8))
+                insets
+            }
         }
 
         val title = TextView(this).apply {
@@ -112,7 +115,6 @@ class ScannerActivity : ComponentActivity() {
         }
         root.addView(title)
 
-        // Row 1: Web Live Room Pairing
         val pairRow = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -127,7 +129,7 @@ class ScannerActivity : ComponentActivity() {
             layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
         }
         val btnConnect = Button(this).apply {
-            text = "Web'e Bağlan & Tara"
+            text = "Web'e Bağlan"
             setOnClickListener {
                 val code = roomInput.text.toString().trim().uppercase()
                 if (!code.matches(Regex("SK\d{4}"))) {
@@ -149,7 +151,6 @@ class ScannerActivity : ComponentActivity() {
         pairRow.addView(btnConnect)
         root.addView(pairRow)
 
-        // Row 2: Quick Offline Camera + JSON Import/Export
         val btnRow = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -256,7 +257,7 @@ class ScannerActivity : ComponentActivity() {
                         runOnUiThread {
                             if (key == token) {
                                 val roomTag = if (roomCode.isNotEmpty()) " [$roomCode]" else ""
-                                status.text = if (lastConfirmed.isNotEmpty()) "$lastConfirmed$roomTag" else "Karede kart: ${seen.size} | Toplam onaylı: ${sentAnswers.size}$roomTag"
+                                status.text = if (lastConfirmed.isNotEmpty()) "$lastConfirmed$roomTag" else "Karede kart: ${seen.size} | Onaylı: ${sentAnswers.size}$roomTag"
                             }
                         }
                     } catch (e: Exception) {
