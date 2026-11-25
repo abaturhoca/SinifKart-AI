@@ -147,5 +147,15 @@ try {
   await waitFor(`document.body.innerText.includes('1 soru · 2 öğrenci · 0 eşleşmeyen kayıt')`, 'çevrimdışı rapor')
   console.log('Gerçek Chromium: 3 rapor indirildi, PDF üretildi, IndexedDB ve servis çalışanıyla çevrimdışı yeniden açma geçti')
 } finally {
-  cdp?.close(); chrome?.kill('SIGTERM'); server.close(); await rm(temporary, { recursive: true, force: true })
+  cdp?.close()
+  if (chrome) {
+    const exited = new Promise(resolve => chrome.once('exit', resolve))
+    chrome.kill('SIGTERM')
+    await Promise.race([exited, new Promise(resolve => setTimeout(resolve, 3000))])
+  }
+  await new Promise(resolve => server.close(resolve))
+  for (let attempt = 0; attempt < 5; attempt++) {
+    try { await rm(temporary, { recursive: true, force: true, maxRetries: 3, retryDelay: 100 }); break }
+    catch (error) { if (attempt === 4) throw error; await new Promise(resolve => setTimeout(resolve, 200)) }
+  }
 }
