@@ -325,6 +325,37 @@ tr:last-child td { border-bottom: none; }
 .live-timer-pill.expired { background: #b91c1c; }
 .sb-timer.expired { background: #dc2626; }
 
+
+.phone-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; border-radius: 999px; font-size: 0.78rem; font-weight: 700;
+  background: #334155; color: #e2e8f0; border: 1px solid #475569;
+}
+.phone-badge.connected {
+  background: #14532d; color: #bbf7d0; border-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34,197,94,0.25);
+}
+.phone-dot {
+  width: 9px; height: 9px; border-radius: 50%; background: #94a3b8; display: inline-block;
+}
+.phone-badge.connected .phone-dot {
+  background: #22c55e; box-shadow: 0 0 8px #22c55e;
+}
+.scanned-banner {
+  background: #ecfdf5; border: 2px solid #16a34a; color: #14532d;
+  border-radius: 10px; padding: 12px 16px; margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+.scanned-banner .sb-name { font-size: 1.15rem; font-weight: 800; }
+.scanned-recent { display: flex; flex-wrap: wrap; gap: 6px; }
+.scanned-pill { background: #dcfce7; border: 1px solid #86efac; color: #166534; padding: 3px 9px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; }
+#sb-last-scanned {
+  background: #14532d; border: 2px solid #22c55e; color: #dcfce7;
+  padding: 10px 20px; border-radius: 12px; font-size: 1.35rem; font-weight: 800;
+  margin-bottom: 16px; display: none; align-items: center; justify-content: space-between; gap: 12px;
+}
+#sb-last-scanned.show { display: flex; }
+
 /* TOAST */
 #toast-box {
   position: fixed; bottom: 18px; right: 18px; z-index: 9000;
@@ -397,6 +428,7 @@ tr:last-child td { border-bottom: none; }
     <span class="badge badge-green" id="net-badge">Çevrimdışı Hazır · IndexedDB</span>
     <span class="badge badge-blue">63 Kazanım · 630 Soru</span>
     <span class="badge badge-amber">KVKK Yerel Depolama</span>
+    <span class="phone-badge" id="phone-status-badge" aria-live="polite"><span class="phone-dot"></span><span id="phone-status-text">Telefon Bekleniyor</span></span>
     <span class="badge badge-gray" id="ai-status-badge">AI Modülü: Açık</span>
   </div>
 </header>
@@ -430,6 +462,13 @@ tr:last-child td { border-bottom: none; }
 
   <!-- TAB 1: LIVE SESSION -->
   <section id="tab-live" class="tab-panel active" role="tabpanel">
+    <div id="live-scanned-banner" class="scanned-banner" style="display:none;" aria-live="polite">
+      <div>
+        <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#15803d;">Son Okunan Öğrenci</div>
+        <div class="sb-name" id="live-last-student-name">—</div>
+      </div>
+      <div class="scanned-recent" id="live-recent-students"></div>
+    </div>
     <div class="grid-4">
       <div class="kpi"><div class="k-label">Aktif Sınıf Öğrencisi</div><div class="k-val" id="kpi-students">0</div></div>
       <div class="kpi"><div class="k-label">Bu Soruda Okunan Kart</div><div class="k-val" id="kpi-answered">0</div></div>
@@ -480,8 +519,26 @@ tr:last-child td { border-bottom: none; }
           <span id="live-readability-tag" class="badge badge-green">Tahta Uygun</span>
         </h2>
         <div id="live-dist-bars" style="margin-bottom:16px;"></div>
-        <div class="alert alert-info" style="font-size:0.83rem;">
-          <strong>Android Yerel Tarayıcı Köprüsü (KVKK Korumalı):</strong> Telefon uygulamasına öğrenci adları aktarılmaz; yalnızca 32 haneli oturum/soru anahtarı ve anonim kart numaraları (1–100) aktarılır.
+        <div style="background:var(--surface-alt);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+            <strong style="font-size:0.9rem;">Canlı Telefon ↔ Web Eşleştirme</strong>
+            <span class="badge badge-blue" id="pair-room-badge">Oda: —</span>
+          </div>
+          <div style="font-size:0.82rem;color:var(--muted);margin-bottom:8px;">
+            Telefonunuzda aşağıdaki bağlantıyı açtığınızda veya oda kodunu girdiğinizde üst çubukta <strong>Telefon Bağlı</strong> görünür ve taranan öğrencinin adı anında ekranda belirir (KVKK: öğrenci adları ağa gönderilmez).
+          </div>
+          <div class="session-group" style="margin-bottom:6px;">
+            <input type="text" id="pair-phone-url" readonly style="flex:1;min-width:180px;font-size:0.8rem;min-height:34px;" aria-label="Telefon bağlantı adresi">
+            <button type="button" class="btn btn-primary btn-sm" id="btn-copy-pair-url">Bağlantıyı Kopyala</button>
+          </div>
+          <div class="session-group">
+            <input type="text" id="pair-join-input" placeholder="Telefon modu: Oda kodu gir (Örn: SK1234)" style="flex:1;min-width:160px;font-size:0.82rem;min-height:34px;">
+            <button type="button" class="btn btn-success btn-sm" id="btn-join-as-phone">Telefon Olarak Bağlan</button>
+          </div>
+        </div>
+        <div class="alert alert-info" style="font-size:0.82rem;">
+          <strong>Android APK Tarayıcı Köprüsü (KVKK):</strong> Yalnızca 32 haneli oturum anahtarı ve anonim kart numaraları (1–100) aktarılır.
+          <a href="https://github.com/abaturhoca/SinifKart-AI/releases/download/v41-preview-5/app-debug.apk" target="_blank" rel="noopener" style="color:var(--primary);font-weight:700;margin-left:6px;">Android APK İndir (v41)</a>
         </div>
         <div class="session-group">
           <button type="button" class="btn btn-secondary btn-sm" id="btn-export-android-session">Android Oturum JSON İndir</button>
@@ -865,6 +922,10 @@ tr:last-child td { border-bottom: none; }
   <div class="sb-stem" id="sb-stem"></div>
   <div class="sb-options" id="sb-options"></div>
   <div id="sb-explanation" style="display:none;background:#14532d;border:2px solid #22c55e;border-radius:12px;padding:16px 22px;font-size:1.3rem;font-weight:600;margin-bottom:18px;"></div>
+  <div id="sb-last-scanned" aria-live="polite">
+    <span id="sb-last-scanned-text">✓ Okundu: —</span>
+    <span id="sb-phone-pill" style="font-size:0.95rem;background:#166534;padding:4px 12px;border-radius:999px;">Canlı</span>
+  </div>
   <div class="sb-footer">
     <div class="sb-dist" id="sb-dist"></div>
     <div class="session-group">
@@ -1266,6 +1327,10 @@ function recordAnswer(cardId, answer, source = 'manual') {
     studentId: st.id
   };
   persist();
+  showScannedStudentBanner(st, answer, source);
+  if (phoneSyncMode === 'phone' && source !== 'remote_phone') {
+    sendPhoneEvent({ type: 'scan', cardId: st.cardId, answer, qId: q.id });
+  }
   renderLive();
   renderReports();
   if (document.getElementById('smartboard-overlay').classList.contains('open')) renderSmartboard();
@@ -1742,10 +1807,15 @@ function drawDetectionsOverlay(baseCanvas, dets) {
     ctx.lineWidth = 4;
     ctx.strokeRect(x, y, bw, bh);
     ctx.fillStyle = '#16a34a';
-    ctx.fillRect(x, Math.max(0, y - 28), 115, 26);
+    const clsObj = getActiveClass();
+    const stObj = clsObj ? clsObj.students.find(s => s.cardId === d.cardId) : null;
+    const labelTxt = stObj ? `#${d.cardId} ${stObj.name} (${d.answer})` : `#${d.cardId} -> ${d.answer}`;
+    ctx.font = 'bold 15px sans-serif';
+    const tw = Math.max(130, ctx.measureText(labelTxt).width + 16);
+    ctx.fillStyle = '#16a34a';
+    ctx.fillRect(x, Math.max(0, y - 28), tw, 26);
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 16px sans-serif';
-    ctx.fillText(`#${d.cardId} -> ${d.answer}`, x + 6, Math.max(18, y - 9));
+    ctx.fillText(labelTxt, x + 8, Math.max(18, y - 9));
   }
 }
 
@@ -2361,6 +2431,161 @@ document.getElementById('auth-form').addEventListener('submit', async e => {
 if (isAppUnlocked()) {
   document.getElementById('auth-gate').classList.add('unlocked');
 }
+
+
+// === LIVE SCANNED STUDENT BANNER + REAL-TIME PHONE <-> WEB SYNC ===
+const recentScanned = [];
+function showScannedStudentBanner(student, answer, source) {
+  const banner = document.getElementById('live-scanned-banner');
+  const nameEl = document.getElementById('live-last-student-name');
+  const recEl = document.getElementById('live-recent-students');
+  const srcLabel = source === 'remote_phone' ? 'Telefon Tarayıcı' : (source === 'camera' ? 'Kamera' : 'Kayıt');
+  const fullText = `✓ #${String(student.cardId).padStart(3,'0')} · ${student.name} — Cevap: ${answer} (${srcLabel})`;
+  if (banner && nameEl) {
+    banner.style.display = 'flex';
+    nameEl.textContent = fullText;
+  }
+  recentScanned.unshift({ cardId: student.cardId, name: student.name, answer });
+  if (recentScanned.length > 6) recentScanned.pop();
+  if (recEl) {
+    recEl.innerHTML = recentScanned.map(r => `<span class="scanned-pill">#${r.cardId} ${escHtml(r.name)}</span>`).join('');
+  }
+  const sbBanner = document.getElementById('sb-last-scanned');
+  const sbTxt = document.getElementById('sb-last-scanned-text');
+  if (sbBanner && sbTxt) {
+    sbTxt.textContent = `✓ Okundu: #${String(student.cardId).padStart(3,'0')} · ${student.name}`;
+    sbBanner.classList.add('show');
+  }
+}
+
+let pairRoomCode = 'SK' + Math.floor(1000 + Math.random() * 9000);
+try {
+  const savedRoom = sessionStorage.getItem('sinifkart:room');
+  if (savedRoom && /^SK\d{4}$/.test(savedRoom)) pairRoomCode = savedRoom;
+  else sessionStorage.setItem('sinifkart:room', pairRoomCode);
+} catch (_) {}
+
+let phoneSyncMode = 'host'; // 'host' (web/smartboard) or 'phone' (mobile scanner)
+let phoneEventSource = null;
+let phoneHeartbeatTimer = null;
+let phoneLastSeen = 0;
+let localBC = null;
+try { if ('BroadcastChannel' in window) localBC = new BroadcastChannel('sinifkart_live_sync'); } catch (_) {}
+
+function updatePhoneBadge(connected, label) {
+  const badge = document.getElementById('phone-status-badge');
+  const txt = document.getElementById('phone-status-text');
+  if (!badge || !txt) return;
+  badge.classList.toggle('connected', !!connected);
+  txt.textContent = label || (connected ? 'Telefon Bağlı (Canlı)' : `Telefon Bekleniyor (${pairRoomCode})`);
+}
+
+function updatePairUI() {
+  const roomBadge = document.getElementById('pair-room-badge');
+  const urlInp = document.getElementById('pair-phone-url');
+  if (roomBadge) roomBadge.textContent = `Oda: ${pairRoomCode}`;
+  const base = (window.location.origin && window.location.origin !== 'null')
+    ? (window.location.origin + window.location.pathname)
+    : 'https://abaturhoca.github.io/SinifKart-AI/';
+  if (urlInp) urlInp.value = `${base}?telefon=${pairRoomCode}`;
+  if (phoneSyncMode === 'host') updatePhoneBadge(Date.now() - phoneLastSeen < 35000);
+}
+
+async function sendPhoneEvent(obj) {
+  const payload = JSON.stringify({ ...obj, room: pairRoomCode, ts: Date.now() });
+  if (localBC) { try { localBC.postMessage(payload); } catch (_) {} }
+  try {
+    await fetch(`https://ntfy.sh/sinifkart_room_${pairRoomCode}`, {
+      method: 'POST',
+      body: payload
+    });
+  } catch (_) {}
+}
+
+function handleIncomingSyncMessage(raw) {
+  let msg;
+  try { msg = typeof raw === 'string' ? JSON.parse(raw) : raw; } catch (_) { return; }
+  if (!msg || msg.room !== pairRoomCode) return;
+  if (phoneSyncMode === 'host') {
+    if (msg.type === 'hello' || msg.type === 'heartbeat') {
+      const wasOffline = (Date.now() - phoneLastSeen) >= 35000;
+      phoneLastSeen = Date.now();
+      updatePhoneBadge(true, `Telefon Bağlı (${msg.device || 'Mobil'})`);
+      if (wasOffline) toast('Telefon tarayıcısı canlı oturuma bağlandı!');
+    } else if (msg.type === 'scan' && msg.cardId && msg.answer) {
+      phoneLastSeen = Date.now();
+      updatePhoneBadge(true, 'Telefon Bağlı (Tarama)');
+      recordAnswer(msg.cardId, msg.answer, 'remote_phone');
+    }
+  }
+}
+
+function startHostListener() {
+  phoneSyncMode = 'host';
+  if (phoneEventSource) { try { phoneEventSource.close(); } catch (_) {} }
+  updatePairUI();
+  try {
+    phoneEventSource = new EventSource(`https://ntfy.sh/sinifkart_room_${pairRoomCode}/sse`);
+    phoneEventSource.onmessage = e => {
+      try {
+        const outer = JSON.parse(e.data);
+        if (outer && outer.message) handleIncomingSyncMessage(outer.message);
+      } catch (_) {}
+    };
+  } catch (_) {}
+  setInterval(() => {
+    if (phoneSyncMode === 'host' && phoneLastSeen > 0 && Date.now() - phoneLastSeen > 35000) {
+      updatePhoneBadge(false, `Telefon Bağlantısı Kesildi (${pairRoomCode})`);
+    }
+  }, 8000);
+}
+
+function connectAsPhone(code) {
+  const clean = String(code || '').trim().toUpperCase();
+  if (!/^SK\d{4}$/.test(clean)) { toast('Geçerli bir oda kodu girin (Örn: SK4829).', 'err'); return; }
+  pairRoomCode = clean;
+  phoneSyncMode = 'phone';
+  updatePairUI();
+  updatePhoneBadge(true, `Telefon Modu Aktif (${pairRoomCode})`);
+  const deviceName = /Android/i.test(navigator.userAgent) ? 'Android Telefon' : 'Mobil Tarayıcı';
+  sendPhoneEvent({ type: 'hello', device: deviceName });
+  if (phoneHeartbeatTimer) clearInterval(phoneHeartbeatTimer);
+  phoneHeartbeatTimer = setInterval(() => {
+    if (phoneSyncMode === 'phone') sendPhoneEvent({ type: 'heartbeat', device: deviceName });
+  }, 15000);
+  // Switch directly to Camera & ArUco Scanner tab on phone
+  const camTab = document.querySelector('nav.main-tabs button[data-tab="scanner"]');
+  if (camTab) camTab.click();
+  toast(`Oda ${pairRoomCode} ile eşleşildi! Web ekranında aktif görünüyorsunuz.`);
+}
+
+if (localBC) {
+  localBC.onmessage = e => handleIncomingSyncMessage(e.data);
+}
+
+document.getElementById('btn-copy-pair-url').addEventListener('click', () => {
+  const inp = document.getElementById('pair-phone-url');
+  inp.select();
+  try { navigator.clipboard.writeText(inp.value); } catch (_) { document.execCommand('copy'); }
+  toast('Telefon eşleştirme bağlantısı kopyalandı.');
+});
+document.getElementById('btn-join-as-phone').addEventListener('click', () => {
+  connectAsPhone(document.getElementById('pair-join-input').value);
+});
+
+// Auto-detect ?telefon=SK1234 query param on phone!
+(function checkPhoneParam() {
+  try {
+    const qRoom = new URLSearchParams(window.location.search).get('telefon');
+    if (qRoom && /^SK\d{4}$/i.test(qRoom.trim())) {
+      connectAsPhone(qRoom.trim().toUpperCase());
+    } else {
+      startHostListener();
+    }
+  } catch (_) {
+    startHostListener();
+  }
+})();
 
 initState().then(() => { if (isAppUnlocked()) startQuestionTimer(true); });
 </script>
