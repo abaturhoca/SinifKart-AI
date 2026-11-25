@@ -132,7 +132,7 @@ class ScannerActivity : ComponentActivity() {
             text = "Web'e Bağlan"
             setOnClickListener {
                 val code = roomInput.text.toString().trim().uppercase()
-                if (!code.matches(Regex("SK\d{4}"))) {
+                if (!code.matches(Regex("SK[0-9]{4}"))) {
                     status.text = "Geçerli oda kodu girin (Örn: SK4829)"
                     return@setOnClickListener
                 }
