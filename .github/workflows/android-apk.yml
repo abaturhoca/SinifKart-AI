@@ -6,7 +6,7 @@ on:
       - '.github/workflows/android-apk.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   apk:
     runs-on: ubuntu-latest
@@ -27,9 +27,11 @@ jobs:
         run: gradle --no-daemon :app:assembleDebug
       - name: APK oluşturulduğunu denetle
         run: test -s android/app/build/outputs/apk/debug/app-debug.apk
-      - uses: actions/upload-artifact@v4
-        with:
-          name: SinifKart-Android-debug-APK
-          path: android/app/build/outputs/apk/debug/app-debug.apk
-          if-no-files-found: error
-          retention-days: 14
+      - name: Özel depoda önizleme sürümü oluştur
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v41-preview-${GITHUB_RUN_NUMBER}" \
+            "android/app/build/outputs/apk/debug/app-debug.apk#SinifKart-v41-debug.apk" \
+            --target "$GITHUB_SHA" --title "SınıfKart v41 önizleme ${GITHUB_RUN_NUMBER}" \
+            --prerelease --notes "Test amaçlı Android debug APK. Gerçek cihaz ve kamera kabulü yapılmadı."

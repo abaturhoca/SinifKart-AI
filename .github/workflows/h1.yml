@@ -26,8 +26,3 @@ jobs:
           curl --retry 12 --retry-connrefused --retry-delay 1 -fsS http://127.0.0.1:5173/ | grep -q '/src/main.tsx'
           curl -fsS http://127.0.0.1:5173/src/main.tsx > /dev/null
       - run: python3 web/test_yerel_panel.py "$(command -v google-chrome)"
-      - uses: actions/upload-artifact@v4
-        with:
-          name: sinifkart-web
-          path: web/dist/
-          retention-days: 1
