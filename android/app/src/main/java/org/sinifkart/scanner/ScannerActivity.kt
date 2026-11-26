@@ -50,8 +50,9 @@ class ScannerActivity : ComponentActivity() {
         params.set_adaptiveThreshConstant(7.0)
         params.set_polygonalApproxAccuracyRate(0.05)
         params.set_cornerRefinementMethod(Objdetect.CORNER_REFINE_SUBPIX)
-        params.set_errorCorrectionRate(0.8)
-        ArucoDetector(Objdetect.getPredefinedDictionary(Objdetect.DICT_4X4_250), params)
+        params.set_errorCorrectionRate(0.25)
+        params.set_maxErroneousBitsInBorderRate(0.15)
+        ArucoDetector(Objdetect.getPredefinedDictionary(Objdetect.DICT_5X5_100), params)
     }
     private val qrDetector by lazy { QRCodeDetector() }
 
@@ -143,7 +144,7 @@ class ScannerActivity : ComponentActivity() {
         }
 
         val title = TextView(this).apply {
-            text = "SınıfKart AI · HD Tarayıcı"
+            text = "SınıfKart AI · 5x5 HD Tarayıcı"
             textSize = 17f
             setTextColor(Color.WHITE)
             setPadding(0, 0, 0, dp(6))
@@ -293,7 +294,7 @@ class ScannerActivity : ComponentActivity() {
                             val streak = if (old?.first == a) old.second + 1 else 1
                             val isNew = !sentAnswers.containsKey(id)
                             // 1 frame instant confirm for first read; 2 frames for answer change
-                            if ((isNew && streak >= 1) || (!isNew && streak == 2)) {
+                            if (streak == 2) {
                                 db.execSQL("INSERT OR REPLACE INTO votes VALUES(?,?,?)", arrayOf(key, id, a))
                                 if (sentAnswers[id] != a) {
                                     sentAnswers[id] = a
