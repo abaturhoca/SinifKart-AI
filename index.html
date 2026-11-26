@@ -453,6 +453,358 @@ tr:last-child td { border-bottom: none; }
 .toast.err { border-left-color: #ef4444; }
 .toast.warn { border-left-color: #f59e0b; }
 
+
+/* === AESTHETIC ACTIVITY SETUP HUB (CLASS & OUTCOME LAUNCHPAD) === */
+.setup-hub-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 58%, #0f766e 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16);
+}
+.setup-hub-hero h2 {
+  margin: 0 0 6px 0;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  border: none;
+  padding: 0;
+  letter-spacing: -0.01em;
+}
+.setup-hub-hero p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  max-width: 640px;
+}
+.hub-phone-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #f8fafc;
+  backdrop-filter: blur(6px);
+}
+.hub-phone-pill.connected {
+  background: rgba(22, 163, 74, 0.28);
+  border-color: #4ade80;
+  color: #dcfce7;
+}
+.hub-phone-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #f59e0b;
+}
+.hub-phone-pill.connected .hub-phone-dot {
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.28);
+}
+.setup-hub-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(300px, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+@media (max-width: 980px) {
+  .setup-hub-layout { grid-template-columns: 1fr; }
+}
+.hub-step-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+.hub-step-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.hub-step-title-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+.hub-step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+.hub-class-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: 10px;
+}
+.hub-class-btn {
+  appearance: none;
+  background: var(--surface-alt);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.14s ease, border-color 0.14s ease, background 0.14s ease, box-shadow 0.14s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+.hub-class-btn:hover {
+  transform: translateY(-2px);
+  border-color: #93c5fd;
+  background: #f8fafc;
+}
+.hub-class-btn.selected {
+  background: linear-gradient(135deg, #eff6ff 0%, #ecfdf5 100%);
+  border-color: #2563eb;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.16);
+}
+.hub-class-btn .hc-name {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+.hub-class-btn .hc-meta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.hub-class-btn .hc-check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.hub-class-btn.selected .hc-check { display: inline-flex; }
+
+.hub-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.hub-pill {
+  appearance: none;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+.hub-pill:hover { border-color: #93c5fd; color: var(--ink); }
+.hub-pill.active {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #ffffff;
+}
+.hub-unit-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.hub-unit-pill {
+  appearance: none;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+.hub-unit-pill:hover { border-color: #60a5fa; color: #0f172a; }
+.hub-unit-pill.active {
+  background: #0f766e;
+  border-color: #0f766e;
+  color: #ffffff;
+}
+.hub-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+  max-height: 410px;
+  overflow-y: auto;
+  padding: 2px 4px 4px 2px;
+}
+.hub-outcome-card {
+  appearance: none;
+  background: var(--surface-alt);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.14s ease, border-color 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hub-outcome-card:hover {
+  transform: translateY(-1px);
+  border-color: #93c5fd;
+  background: #ffffff;
+}
+.hub-outcome-card.selected {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+  border-color: #16a34a;
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.16);
+}
+.hub-outcome-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.hub-outcome-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #dbeafe;
+  color: #1e40af;
+}
+.hub-outcome-card.selected .hub-outcome-code {
+  background: #16a34a;
+  color: #ffffff;
+}
+.hub-outcome-qcnt {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #475569;
+  background: #e2e8f0;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.hub-outcome-title {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.38;
+}
+.hub-outcome-unit {
+  font-size: 0.74rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.hub-launch-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 2px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+  margin-bottom: 16px;
+}
+.hub-summary-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 13px 14px;
+  margin-bottom: 14px;
+}
+.hub-summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hub-summary-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+}
+.hub-summary-val {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.35;
+}
+.btn-start-activity {
+  width: 100%;
+  min-height: 54px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #16a34a 0%, #0d9488 55%, #1d4ed8 100%);
+  color: #ffffff;
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 10px 22px rgba(22, 163, 74, 0.28);
+  transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
+}
+.btn-start-activity:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(22, 163, 74, 0.36);
+  filter: brightness(1.04);
+}
+.btn-start-activity:active { transform: translateY(0); }
+
+.active-stage-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: linear-gradient(90deg, #eff6ff 0%, #f0fdf4 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
+}
+
 @media print {
   header.topbar, .session-strip, nav.main-tabs, .no-print, #smartboard-overlay, #toast-box { display: none !important; }
   main { max-width: 100%; margin: 0; padding: 0; }
@@ -546,6 +898,106 @@ tr:last-child td { border-bottom: none; }
 
   <!-- TAB 1: LIVE SESSION -->
   <section id="tab-live" class="tab-panel active" role="tabpanel">
+    <!-- AESTHETIC SETUP HUB (SHOWN BEFORE ACTIVITY STARTS) -->
+    <div id="live-setup-hub">
+      <div class="setup-hub-hero">
+        <div>
+          <h2>Canlı Etkinlik Hazırlığı</h2>
+          <p>Sınıfınızı ve işleyeceğiniz MEB Fen Bilimleri öğrenme çıktısını seçin. <strong>Etkinliğe Başla</strong> butonuna basana kadar süre başlamaz ve kart okuma yapılmaz.</p>
+        </div>
+        <div class="hub-phone-pill" id="hub-phone-status-pill">
+          <span class="hub-phone-dot"></span>
+          <span id="hub-phone-status-text">Telefon Bekleniyor</span>
+        </div>
+      </div>
+
+      <div class="setup-hub-layout">
+        <div>
+          <div class="hub-step-card">
+            <div class="hub-step-title">
+              <div class="hub-step-title-left"><span class="hub-step-num">1</span> Sınıf Seçimi</div>
+              <span class="badge badge-blue" id="hub-class-count-badge">5 Sınıf</span>
+            </div>
+            <div class="hub-class-grid" id="hub-class-grid"></div>
+          </div>
+
+          <div class="hub-step-card">
+            <div class="hub-step-title">
+              <div class="hub-step-title-left"><span class="hub-step-num">2</span> Kazanım / Öğrenme Çıktısı Seçimi</div>
+              <span class="badge badge-green" id="hub-outcome-count-badge">63 Kazanım</span>
+            </div>
+            <div class="hub-filter-row">
+              <button type="button" class="hub-pill active" data-hub-grade="all">Tüm Düzeyler</button>
+              <button type="button" class="hub-pill" data-hub-grade="5">5. Sınıf</button>
+              <button type="button" class="hub-pill" data-hub-grade="6">6. Sınıf</button>
+              <input type="search" id="hub-outcome-search" placeholder="Kazanım kodu veya konu ara (örn. Güneş, FB.5.1)..." style="flex:1;min-width:210px;min-height:36px;font-size:0.84rem;" aria-label="Kazanım ara">
+            </div>
+            <div class="hub-unit-row" id="hub-unit-row"></div>
+            <div class="hub-outcome-grid" id="hub-outcome-grid"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="hub-launch-card">
+            <div style="font-size:0.98rem;font-weight:800;color:#0f172a;margin-bottom:12px;">Seçili Etkinlik Özeti</div>
+            <div class="hub-summary-row">
+              <div class="hub-summary-item">
+                <span class="hub-summary-label">Seçili Sınıf</span>
+                <span class="hub-summary-val" id="hub-summary-class">—</span>
+              </div>
+              <div class="hub-summary-item">
+                <span class="hub-summary-label">Kazanım / Öğrenme Çıktısı</span>
+                <span class="hub-summary-val" id="hub-summary-outcome">—</span>
+              </div>
+              <div class="hub-summary-item">
+                <span class="hub-summary-label">Hazır Soru Sayısı</span>
+                <span class="hub-summary-val" id="hub-summary-qcount">—</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;">
+              <label for="hub-duration-select" style="font-size:0.84rem;font-weight:700;color:#334155;">Soru Süresi:</label>
+              <select id="hub-duration-select" style="width:auto;min-height:36px;padding:4px 10px;font-size:0.84rem;">
+                <option value="30">30 sn</option>
+                <option value="45">45 sn</option>
+                <option value="60" selected>60 sn (1 dk)</option>
+                <option value="90">90 sn</option>
+                <option value="120">120 sn</option>
+              </select>
+            </div>
+            <label style="display:flex;align-items:center;gap:8px;font-size:0.84rem;font-weight:600;color:#334155;margin-bottom:14px;cursor:pointer;">
+              <input type="checkbox" id="hub-open-fullscreen" checked style="width:16px;height:16px;accent-color:#16a34a;">
+              <span>Başlayınca Akıllı Tahta Tam Ekranını aç</span>
+            </label>
+            <button type="button" class="btn-start-activity" id="btn-start-activity">
+              <span>▶ Etkinliğe Başla</span>
+            </button>
+          </div>
+
+          <div class="hub-step-card" style="padding:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;">
+              <strong style="font-size:0.9rem;color:#0f172a;">Telefon Bağlantısı (Opsiyonel)</strong>
+              <span class="badge badge-blue" id="hub-room-badge">Oda: —</span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;">
+              <div id="hub-qr-box" style="width:96px;height:96px;flex-shrink:0;background:#fff;border:1px solid var(--border);border-radius:8px;padding:4px;"></div>
+              <div style="font-size:0.8rem;color:var(--muted);line-height:1.45;">
+                Başlamadan önce telefon kameranızı veya <strong>5×5 Android APK</strong>'yı okutarak bağlayabilirsiniz. Kart okumaları yalnızca <strong>Etkinliğe Başla</strong> dedikten sonra kaydedilir.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIVE LIVE QUESTION & SCANNING STAGE (SHOWN ONLY AFTER ETKİNLİĞE BAŞLA) -->
+    <div id="live-active-stage" style="display:none;">
+      <div class="active-stage-bar">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-back-to-hub">← Sınıf / Kazanım Değiştir</button>
+          <span style="font-size:0.9rem;font-weight:800;color:#0f172a;" id="active-stage-summary">Aktif Etkinlik</span>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" id="btn-open-smartboard-bar">Akıllı Tahta Tam Ekran</button>
+      </div>
     <div id="live-scanned-banner" class="scanned-banner" style="display:none;" aria-live="polite">
       <div>
         <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#15803d;">Son Okunan Öğrenci</div>
@@ -664,6 +1116,7 @@ tr:last-child td { border-bottom: none; }
         <span style="font-size:0.82rem;color:var(--muted);" id="unscanned-summary">Taranmayan: 0</span>
       </h2>
       <div class="student-chip-grid" id="live-student-grid"></div>
+    </div>
     </div>
   </section>
 
@@ -1420,6 +1873,9 @@ function recordAnswer(cardId, answer, source = 'manual') {
   const cls = getActiveClass();
   const sess = getActiveSession();
   if (!q || !cls || !sess) return { ok: false, reason: 'Aktif oturum veya soru yok.' };
+  if (!activityStarted) {
+    return { ok: false, reason: 'Etkinlik henüz başlamadı — önce "Etkinliğe Başla" butonuna basın.' };
+  }
   if (questionEnded || !timerRunning || sbTimerSec <= 0) {
     return { ok: false, reason: 'Süre aktif değil veya cevaplama sonlandırıldı — yeni yanıt alınmıyor.' };
   }
@@ -1944,6 +2400,7 @@ function renderStorageInfo() {
 
 function renderAll() {
   renderHeaderControls();
+  renderSetupHub();
   renderLive();
   renderQuestionBank();
   renderClasses();
@@ -2134,6 +2591,15 @@ document.getElementById('btn-reveal-toggle').addEventListener('click', toggleRev
 document.getElementById('sb-reveal-btn').addEventListener('click', toggleReveal);
 
 function openSmartboard() {
+  if (!activityStarted) {
+    activityStarted = true;
+    const hub = document.getElementById('live-setup-hub');
+    const stg = document.getElementById('live-active-stage');
+    if (hub) hub.style.display = 'none';
+    if (stg) stg.style.display = 'block';
+    updateActiveStageSummary();
+    renderLive();
+  }
   document.getElementById('smartboard-overlay').classList.add('open');
   renderSmartboard();
   if (!timerRunning) startQuestionTimer(sbTimerSec === 0);
@@ -2702,8 +3168,9 @@ document.getElementById('auth-form').addEventListener('submit', async e => {
     document.getElementById('auth-gate').classList.add('unlocked');
     document.getElementById('auth-error').style.display = 'none';
     await applyDecryptedClasses(decrypted);
-    startQuestionTimer(true);
-    toast('Hoş geldiniz! 5 sınıf (126 öğrenci) kartlarla eşleşti ve süre başladı.');
+    stopQuestionTimer();
+    renderSetupHub();
+    toast('Hoş geldiniz! Sınıf ve kazanım seçip "Etkinliğe Başla" butonuna basın.');
   } catch (_) {
     document.getElementById('auth-error').style.display = 'block';
     document.getElementById('auth-pass-input').focus();
@@ -2873,11 +3340,19 @@ let localBC = null;
 try { if ('BroadcastChannel' in window) localBC = new BroadcastChannel('sinifkart_live_sync'); } catch (_) {}
 
 function updatePhoneBadge(connected, label) {
+  const textVal = label || (connected ? 'Telefon Bağlı (Canlı)' : `Telefon Bekleniyor (${pairRoomCode})`);
   const badge = document.getElementById('phone-status-badge');
   const txt = document.getElementById('phone-status-text');
-  if (!badge || !txt) return;
-  badge.classList.toggle('connected', !!connected);
-  txt.textContent = label || (connected ? 'Telefon Bağlı (Canlı)' : `Telefon Bekleniyor (${pairRoomCode})`);
+  if (badge && txt) {
+    badge.classList.toggle('connected', !!connected);
+    txt.textContent = textVal;
+  }
+  const hubPill = document.getElementById('hub-phone-status-pill');
+  const hubTxt = document.getElementById('hub-phone-status-text');
+  if (hubPill && hubTxt) {
+    hubPill.classList.toggle('connected', !!connected);
+    hubTxt.textContent = textVal;
+  }
 }
 
 function updatePairUI() {
@@ -2889,8 +3364,13 @@ function updatePairUI() {
     : 'https://abaturhoca.github.io/SinifKart-AI/';
   const fullUrl = `${base}?telefon=${pairRoomCode}`;
   if (urlInp) urlInp.value = fullUrl;
+  const svgQr = QRGen.toSVG(fullUrl);
   const qrBox = document.getElementById('pair-qr-box');
-  if (qrBox) qrBox.innerHTML = QRGen.toSVG(fullUrl);
+  if (qrBox) qrBox.innerHTML = svgQr;
+  const hubQrBox = document.getElementById('hub-qr-box');
+  if (hubQrBox) hubQrBox.innerHTML = svgQr;
+  const hubRoom = document.getElementById('hub-room-badge');
+  if (hubRoom) hubRoom.textContent = `Oda: ${pairRoomCode}`;
   if (phoneSyncMode === 'host') updatePhoneBadge(Date.now() - phoneLastSeen < 35000);
 }
 
@@ -3015,7 +3495,194 @@ document.getElementById('btn-join-as-phone').addEventListener('click', () => {
   }
 })();
 
-initState().then(() => { if (isAppUnlocked()) startQuestionTimer(true); });
+
+// === AESTHETIC ACTIVITY SETUP HUB CONTROLLER ===
+let activityStarted = false;
+let hubGradeFilter = 'all';
+let hubUnitFilter = 'all';
+let hubSearchQuery = '';
+
+function updateActiveStageSummary() {
+  const el = document.getElementById('active-stage-summary');
+  if (!el) return;
+  const cls = getActiveClass();
+  const out = getOutcomeList().find(o => o.code === state.activeOutcome);
+  const qCnt = (state.questions[state.activeOutcome] || []).length;
+  el.textContent = `${cls ? cls.name : '—'} · ${state.activeOutcome}${out ? ' — ' + out.title.slice(0, 70) + (out.title.length > 70 ? '…' : '') : ''} (${qCnt} Soru)`;
+}
+
+function renderSetupHub() {
+  const classGrid = document.getElementById('hub-class-grid');
+  const unitRow = document.getElementById('hub-unit-row');
+  const outGrid = document.getElementById('hub-outcome-grid');
+  if (!classGrid || !unitRow || !outGrid) return;
+
+  const clsCountBadge = document.getElementById('hub-class-count-badge');
+  if (clsCountBadge) clsCountBadge.textContent = `${state.classes.length} Sınıf`;
+
+  // 1. Render Class Cards
+  classGrid.innerHTML = state.classes.map(c => {
+    const sel = c.id === state.activeClassId;
+    return `<button type="button" class="hub-class-btn ${sel ? 'selected' : ''}" data-hub-class="${escHtml(c.id)}">
+      <span class="hc-check">✓</span>
+      <span class="hc-name">${escHtml(c.name)}</span>
+      <span class="hc-meta">${c.students.length} Öğrenci</span>
+    </button>`;
+  }).join('');
+
+  classGrid.querySelectorAll('[data-hub-class]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.activeClassId = btn.dataset.hubClass;
+      const s = state.sessions.find(x => x.classId === state.activeClassId);
+      if (s) state.activeSessionId = s.id;
+      else {
+        const ns = createDefaultSession(state.activeClassId, getActiveClass().name + ' Oturumu');
+        state.sessions.push(ns);
+        state.activeSessionId = ns.id;
+      }
+      persist();
+      renderHeaderControls();
+      renderSetupHub();
+      renderLive();
+    });
+  });
+
+  // 2. Render Unit Filter Pills for selected grade
+  const matchingUnits = CURRICULUM.filter(u => hubGradeFilter === 'all' || String(u.grade) === String(hubGradeFilter));
+  if (hubUnitFilter !== 'all' && !matchingUnits.some(u => `${u.grade}-${u.unit}` === hubUnitFilter)) {
+    hubUnitFilter = 'all';
+  }
+  unitRow.innerHTML = `<button type="button" class="hub-unit-pill ${hubUnitFilter === 'all' ? 'active' : ''}" data-hub-unit="all">Tüm Üniteler</button>` +
+    matchingUnits.map(u => {
+      const uid = `${u.grade}-${u.unit}`;
+      return `<button type="button" class="hub-unit-pill ${hubUnitFilter === uid ? 'active' : ''}" data-hub-unit="${uid}">${u.grade}. Sınıf · Ü${u.unit}: ${escHtml(u.name)}</button>`;
+    }).join('');
+
+  unitRow.querySelectorAll('[data-hub-unit]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      hubUnitFilter = btn.dataset.hubUnit;
+      renderSetupHub();
+    });
+  });
+
+  // 3. Render Filtered Outcome Cards
+  const qNorm = hubSearchQuery.trim().toLowerCase();
+  const filteredOutcomes = [];
+  for (const u of matchingUnits) {
+    const uid = `${u.grade}-${u.unit}`;
+    if (hubUnitFilter !== 'all' && hubUnitFilter !== uid) continue;
+    for (const o of u.outcomes) {
+      if (qNorm && !o.code.toLowerCase().includes(qNorm) && !o.title.toLowerCase().includes(qNorm) && !u.name.toLowerCase().includes(qNorm)) {
+        continue;
+      }
+      filteredOutcomes.push({ ...o, grade: u.grade, unit: u.unit, unitName: u.name, qCount: (state.questions[o.code] || []).length });
+    }
+  }
+  const outCountBadge = document.getElementById('hub-outcome-count-badge');
+  if (outCountBadge) outCountBadge.textContent = `${filteredOutcomes.length} Kazanım`;
+
+  if (!filteredOutcomes.length) {
+    outGrid.innerHTML = '<div style="grid-column:1/-1;padding:20px;text-align:center;color:var(--muted);font-size:0.9rem;">Aramanıza uygun kazanım bulunamadı.</div>';
+  } else {
+    outGrid.innerHTML = filteredOutcomes.map(o => {
+      const sel = o.code === state.activeOutcome;
+      return `<button type="button" class="hub-outcome-card ${sel ? 'selected' : ''}" data-hub-outcome="${escHtml(o.code)}">
+        <div class="hub-outcome-top">
+          <span class="hub-outcome-code">${escHtml(o.code)}</span>
+          <span class="hub-outcome-qcnt">${o.qCount} Soru</span>
+        </div>
+        <div class="hub-outcome-title">${escHtml(o.title)}</div>
+        <div class="hub-outcome-unit">${o.grade}. Sınıf · ${escHtml(o.unitName)}</div>
+      </button>`;
+    }).join('');
+    outGrid.querySelectorAll('[data-hub-outcome]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.activeOutcome = btn.dataset.hubOutcome;
+        state.activeQuestionIdx = 0;
+        state.revealAnswer = false;
+        persist();
+        renderSetupHub();
+        renderLive();
+      });
+    });
+  }
+
+  // 4. Update Launch Summary
+  const cls = getActiveClass();
+  const activeOut = getOutcomeList().find(o => o.code === state.activeOutcome);
+  const qCnt = (state.questions[state.activeOutcome] || []).length;
+  const sCls = document.getElementById('hub-summary-class');
+  const sOut = document.getElementById('hub-summary-outcome');
+  const sQ = document.getElementById('hub-summary-qcount');
+  if (sCls) sCls.textContent = cls ? `${cls.name} (${cls.students.length} Öğrenci)` : '—';
+  if (sOut) sOut.textContent = activeOut ? `${activeOut.code} — ${activeOut.title}` : state.activeOutcome;
+  if (sQ) sQ.textContent = `${qCnt} Soru · 5×5 Karışmayan Kartlar`;
+  updateActiveStageSummary();
+}
+
+function startActivity() {
+  const cls = getActiveClass();
+  const qList = state.questions[state.activeOutcome] || [];
+  if (!cls || !qList.length) {
+    toast('Lütfen geçerli bir sınıf ve soru içeren bir kazanım seçin.', 'err');
+    return;
+  }
+  const durSel = document.getElementById('hub-duration-select');
+  if (durSel) {
+    timerDuration = Number(durSel.value) || 60;
+    const liveDur = document.getElementById('timer-duration-select');
+    if (liveDur) liveDur.value = String(timerDuration);
+  }
+  activityStarted = true;
+  state.activeQuestionIdx = 0;
+  state.revealAnswer = false;
+  questionEnded = false;
+  document.getElementById('live-setup-hub').style.display = 'none';
+  document.getElementById('live-active-stage').style.display = 'block';
+  updateActiveStageSummary();
+  persist();
+  renderLive();
+  startQuestionTimer(true);
+  const openFS = document.getElementById('hub-open-fullscreen');
+  if (openFS && openFS.checked) {
+    openSmartboard();
+  }
+  toast(`Etkinlik başladı: ${cls.name} · ${state.activeOutcome} — Kart okuma aktif!`);
+}
+
+function stopActivityToHub() {
+  stopQuestionTimer();
+  closeSmartboard();
+  activityStarted = false;
+  document.getElementById('live-active-stage').style.display = 'none';
+  document.getElementById('live-setup-hub').style.display = 'block';
+  renderSetupHub();
+  toast('Etkinlik duraklatıldı. Yeni sınıf veya kazanım seçebilirsiniz.', 'warn');
+}
+
+document.querySelectorAll('[data-hub-grade]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    hubGradeFilter = btn.dataset.hubGrade;
+    hubUnitFilter = 'all';
+    document.querySelectorAll('[data-hub-grade]').forEach(b => b.classList.toggle('active', b === btn));
+    renderSetupHub();
+  });
+});
+const hubSearchEl = document.getElementById('hub-outcome-search');
+if (hubSearchEl) {
+  hubSearchEl.addEventListener('input', e => {
+    hubSearchQuery = e.target.value || '';
+    renderSetupHub();
+  });
+}
+const btnStartAct = document.getElementById('btn-start-activity');
+if (btnStartAct) btnStartAct.addEventListener('click', startActivity);
+const btnBackHub = document.getElementById('btn-back-to-hub');
+if (btnBackHub) btnBackHub.addEventListener('click', stopActivityToHub);
+const btnOpenSbBar = document.getElementById('btn-open-smartboard-bar');
+if (btnOpenSbBar) btnOpenSbBar.addEventListener('click', openSmartboard);
+
+initState().then(() => { renderSetupHub(); });
 </script>
 </body>
 </html>
