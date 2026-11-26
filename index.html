@@ -370,6 +370,75 @@ tr:last-child td { border-bottom: none; }
 #pair-qr-box { width: 132px; height: 132px; background: #fff; padding: 6px; border: 1px solid var(--border); border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 #pair-qr-box svg { width: 100%; height: 100%; display: block; }
 
+
+/* SMARTBOARD LIVE STUDENT ROSTER GRID */
+#sb-student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  gap: 8px;
+  margin: 4px 0 18px;
+  max-height: 36vh;
+  overflow-y: auto;
+  padding: 6px 2px;
+}
+.sb-st-chip {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  opacity: 0.55;
+  border-radius: 9px;
+  padding: 8px 11px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.sb-st-chip.scanned {
+  background: #15803d;
+  border: 2px solid #4ade80;
+  color: #ffffff;
+  opacity: 1;
+  font-weight: 800;
+  box-shadow: 0 2px 10px rgba(34,197,94,0.28);
+}
+.sb-st-chip.ended-correct {
+  background: #16a34a;
+  border: 2px solid #bbf7d0;
+  color: #ffffff;
+  opacity: 1;
+  font-size: 1.03rem;
+  font-weight: 800;
+  padding: 10px 13px;
+  transform: scale(1.04);
+  box-shadow: 0 0 16px rgba(34,197,94,0.5);
+  z-index: 2;
+}
+.sb-st-chip.ended-wrong {
+  background: #1e293b;
+  border: 1px solid #64748b;
+  color: #cbd5e1;
+  opacity: 0.72;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.sb-st-chip.ended-blank {
+  background: #0f172a;
+  border: 1px dashed #334155;
+  color: #64748b;
+  opacity: 0.45;
+}
+.sb-pts-badge {
+  background: rgba(0,0,0,0.28);
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 /* TOAST */
 #toast-box {
   position: fixed; bottom: 18px; right: 18px; z-index: 9000;
@@ -495,16 +564,17 @@ tr:last-child td { border-bottom: none; }
         <h2>
           <span>Aktif Soru & Öğretmen Kontrolü</span>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span class="live-timer-pill" id="live-timer-display">00:45</span>
+            <span class="live-timer-pill" id="live-timer-display">01:00</span>
             <select id="timer-duration-select" style="width:auto;min-height:32px;padding:3px 8px;font-size:0.8rem;" aria-label="Soru süresi">
               <option value="20">20 sn</option>
               <option value="30">30 sn</option>
-              <option value="45" selected>45 sn</option>
-              <option value="60">60 sn</option>
+              <option value="45">45 sn</option>
+              <option value="60" selected>60 sn (1 dk)</option>
               <option value="90">90 sn</option>
               <option value="120">120 sn</option>
             </select>
             <button type="button" class="btn btn-secondary btn-sm" id="btn-live-timer-toggle">Duraklat</button>
+            <button type="button" class="btn btn-amber btn-sm" id="btn-live-timer-add1">+1 Dk</button>
             <button type="button" class="btn btn-secondary btn-sm" id="btn-live-timer-reset">Sıfırla</button>
             <span class="badge badge-blue" id="live-q-badge">FB.5.1.1</span>
           </div>
@@ -520,6 +590,7 @@ tr:last-child td { border-bottom: none; }
         </div>
         <div class="session-group">
           <button type="button" class="btn btn-secondary btn-sm" id="btn-prev-q">← Önceki</button>
+          <button type="button" class="btn btn-danger btn-sm" id="btn-end-answering-live">Cevaplamayı Sonlandır</button>
           <button type="button" class="btn btn-secondary btn-sm" id="btn-next-q">Sonraki →</button>
           <button type="button" class="btn btn-success btn-sm" id="btn-reveal-toggle">Doğru Cevabı Göster</button>
           <button type="button" class="btn btn-primary btn-sm" id="btn-open-smartboard-2">Akıllı Tahtada Yansıt</button>
@@ -944,26 +1015,29 @@ tr:last-child td { border-bottom: none; }
       <span class="sb-pill" id="sb-outcome-pill">FB.5.1.1</span>
       <span class="sb-pill" id="sb-class-pill">6-A</span>
       <span class="sb-pill" id="sb-scanned-pill">Okunan Kart: 0 / 40</span>
-      <span class="sb-timer" id="sb-timer-display">00:45</span>
+      <span class="sb-timer" id="sb-timer-display">01:00</span>
     </div>
     <div class="session-group">
-      <button type="button" class="btn btn-secondary btn-sm" id="sb-timer-start">Süre Başlat/Durdur</button>
-      <button type="button" class="btn btn-secondary btn-sm" id="sb-timer-reset">45 sn Sıfırla</button>
+      <button type="button" class="btn btn-secondary btn-sm" id="sb-timer-start">Duraklat / Başlat</button>
+      <button type="button" class="btn btn-amber btn-sm" id="sb-timer-add1">+1 Dk Ekle</button>
+      <button type="button" class="btn btn-secondary btn-sm" id="sb-timer-reset">1 Dk Sıfırla</button>
       <button type="button" class="btn btn-success btn-sm" id="sb-reveal-btn">Doğru Cevabı Açıkla</button>
       <button type="button" class="btn btn-danger btn-sm" id="sb-close-btn">Tahtadan Çık (Esc)</button>
     </div>
   </div>
   <div class="sb-stem" id="sb-stem"></div>
   <div class="sb-options" id="sb-options"></div>
-  <div id="sb-explanation" style="display:none;background:#14532d;border:2px solid #22c55e;border-radius:12px;padding:16px 22px;font-size:1.3rem;font-weight:600;margin-bottom:18px;"></div>
+  <div id="sb-explanation" style="display:none;background:#14532d;border:2px solid #22c55e;border-radius:12px;padding:14px 20px;font-size:1.2rem;font-weight:600;margin-bottom:14px;"></div>
   <div id="sb-last-scanned" aria-live="polite">
     <span id="sb-last-scanned-text">✓ Okundu: —</span>
     <span id="sb-phone-pill" style="font-size:0.95rem;background:#166534;padding:4px 12px;border-radius:999px;">Canlı</span>
   </div>
+  <div id="sb-student-grid" aria-label="Sınıf canlı okuma durumu"></div>
   <div class="sb-footer">
     <div class="sb-dist" id="sb-dist"></div>
     <div class="session-group">
       <button type="button" class="btn btn-secondary" id="sb-prev-btn">← Önceki Soru</button>
+      <button type="button" class="btn btn-danger" id="sb-end-btn">Cevaplamayı Sonlandır</button>
       <button type="button" class="btn btn-primary" id="sb-next-btn">Sonraki Soru →</button>
     </div>
   </div>
@@ -1343,6 +1417,9 @@ function recordAnswer(cardId, answer, source = 'manual') {
   const cls = getActiveClass();
   const sess = getActiveSession();
   if (!q || !cls || !sess) return { ok: false, reason: 'Aktif oturum veya soru yok.' };
+  if (questionEnded || !timerRunning || sbTimerSec <= 0) {
+    return { ok: false, reason: 'Süre aktif değil veya cevaplama sonlandırıldı — yeni yanıt alınmıyor.' };
+  }
   const validLetters = LETTERS.slice(0, q.options.length);
   if (!validLetters.includes(answer)) {
     return { ok: false, reason: `Geçersiz şık (${answer}). Bu soru ${q.options.length} seçeneklidir.` };
@@ -1354,11 +1431,15 @@ function recordAnswer(cardId, answer, source = 'manual') {
   if (!sess.responses[q.id]) sess.responses[q.id] = {};
   const prev = sess.responses[q.id][cardId];
   const nextSeq = Object.values(sess.responses[q.id]).reduce((m, r) => Math.max(m, r.scanSeq || 0), 0) + 1;
+  const isCor = (answer === LETTERS[q.correctIndex]);
+  const pts = computeSpeedPoints(isCor, questionElapsedSec);
   sess.responses[q.id][cardId] = {
     answer,
     previousAnswer: prev ? prev.answer : null,
     updatedAt: new Date().toISOString(),
     scanSeq: prev && prev.scanSeq ? prev.scanSeq : nextSeq,
+    elapsedSec: questionElapsedSec,
+    earnedPoints: pts,
     source,
     studentId: st.id
   };
@@ -1491,13 +1572,13 @@ function renderLive() {
   if (cEl) {
     document.getElementById('cnt-correct-col').textContent = correctList.length;
     cEl.innerHTML = correctList.length
-      ? correctList.map((x, idx) => `<div class="live-row"><span><strong>${idx+1}.</strong> #${x.st.cardId} ${escHtml(x.st.name)}</span><span style="color:#15803d;font-weight:700;">${x.rec.answer} · ${fmtT(x.rec.updatedAt)}</span></div>`).join('')
+      ? correctList.map((x, idx) => `<div class="live-row"><span><strong>${idx+1}.</strong> #${x.st.cardId} ${escHtml(x.st.name)}</span><span style="color:#15803d;font-weight:700;">${x.rec.answer} · +${x.rec.earnedPoints ?? 0}p · ${fmtT(x.rec.updatedAt)}</span></div>`).join('')
       : '<div style="color:var(--muted);padding:8px 0;">Henüz doğru yanıt yok.</div>';
   }
   if (wEl) {
     document.getElementById('cnt-wrong-col').textContent = wrongList.length;
     wEl.innerHTML = wrongList.length
-      ? wrongList.map((x, idx) => `<div class="live-row"><span><strong>${idx+1}.</strong> #${x.st.cardId} ${escHtml(x.st.name)}</span><span style="color:#b91c1c;font-weight:700;">${x.rec.answer} · ${fmtT(x.rec.updatedAt)}</span></div>`).join('')
+      ? wrongList.map((x, idx) => `<div class="live-row"><span><strong>${idx+1}.</strong> #${x.st.cardId} ${escHtml(x.st.name)}</span><span style="color:#b91c1c;font-weight:700;">${x.rec.answer} · +${x.rec.earnedPoints ?? 0}p · ${fmtT(x.rec.updatedAt)}</span></div>`).join('')
       : '<div style="color:var(--muted);padding:8px 0;">Yanlış yanıt yok.</div>';
   }
   if (uEl) {
@@ -1522,19 +1603,28 @@ function renderLive() {
   }).join('');
 }
 
-// === UNIFIED AUTO-RUNNING QUESTION TIMER (LIVE + SMARTBOARD) ===
-let timerDuration = 45, sbTimerSec = 45, sbTimerHandle = null, timerRunning = false;
+// === UNIFIED AUTO-RUNNING QUESTION TIMER (60s + 1 DK EKLE + SPEED SCORING) ===
+let timerDuration = 60, sbTimerSec = 60, questionElapsedSec = 0, sbTimerHandle = null, timerRunning = false, questionEnded = false;
 function formatTimer(sec) {
   const m = Math.floor(sec / 60), s = sec % 60;
   return String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
 }
+function computeSpeedPoints(isCorrect, elapsedSec) {
+  if (!isCorrect) return 0;
+  if (elapsedSec <= 10) return 10;
+  const penalty = Math.ceil((elapsedSec - 10) / 10);
+  return Math.max(1, 10 - penalty);
+}
 function syncTimerDisplays() {
-  const text = sbTimerSec === 0 ? '00:00 (Süre Doldu)' : formatTimer(sbTimerSec);
+  let text = formatTimer(sbTimerSec);
+  if (questionEnded) text = formatTimer(sbTimerSec) + ' (Sonlandırıldı)';
+  else if (sbTimerSec === 0) text = '00:00 (Süre Doldu)';
   const liveEl = document.getElementById('live-timer-display');
   const sbEl = document.getElementById('sb-timer-display');
   const toggleBtn = document.getElementById('btn-live-timer-toggle');
-  if (liveEl) { liveEl.textContent = text; liveEl.classList.toggle('expired', sbTimerSec === 0); }
-  if (sbEl) { sbEl.textContent = text; sbEl.classList.toggle('expired', sbTimerSec === 0); }
+  const endedOrZero = questionEnded || sbTimerSec === 0;
+  if (liveEl) { liveEl.textContent = text; liveEl.classList.toggle('expired', endedOrZero); }
+  if (sbEl) { sbEl.textContent = text; sbEl.classList.toggle('expired', endedOrZero); }
   if (toggleBtn) toggleBtn.textContent = timerRunning ? 'Duraklat' : 'Başlat';
 }
 function stopQuestionTimer() {
@@ -1543,14 +1633,20 @@ function stopQuestionTimer() {
   syncTimerDisplays();
 }
 function startQuestionTimer(resetToDuration = false) {
-  if (resetToDuration) sbTimerSec = timerDuration;
+  if (resetToDuration) {
+    sbTimerSec = timerDuration;
+    questionElapsedSec = 0;
+    questionEnded = false;
+  }
   if (sbTimerHandle) { clearInterval(sbTimerHandle); sbTimerHandle = null; }
   if (sbTimerSec <= 0) sbTimerSec = timerDuration;
+  questionEnded = false;
   timerRunning = true;
   syncTimerDisplays();
   sbTimerHandle = setInterval(() => {
     if (sbTimerSec > 0) {
       sbTimerSec--;
+      questionElapsedSec++;
       syncTimerDisplays();
       if (sbTimerSec === 0) {
         clearInterval(sbTimerHandle);
@@ -1560,6 +1656,22 @@ function startQuestionTimer(resetToDuration = false) {
       }
     }
   }, 1000);
+}
+function addOneMinuteTimer() {
+  sbTimerSec += 60;
+  questionEnded = false;
+  if (!timerRunning) startQuestionTimer(false);
+  else syncTimerDisplays();
+  toast('+1 dakika eklendi!');
+}
+function endQuestionAnswering() {
+  questionEnded = true;
+  stopQuestionTimer();
+  state.revealAnswer = true;
+  renderLive();
+  renderReports();
+  if (document.getElementById('smartboard-overlay').classList.contains('open')) renderSmartboard();
+  toast('Cevaplama sonlandırıldı! Doğru cevaplayanlar yeşille vurgulandı.', 'warn');
 }
 function toggleQuestionTimer() {
   if (timerRunning) stopQuestionTimer();
@@ -1600,6 +1712,49 @@ function renderSmartboard() {
     const L = LETTERS[i];
     return `<div class="sb-dist-item">${L}: ${counts[L] || 0}</div>`;
   }).join('');
+
+  // Render Smartboard Live Student Roster Grid
+  const sbGrid = document.getElementById('sb-student-grid');
+  if (sbGrid) {
+    const corL = LETTERS[q.correctIndex];
+    const items = cls.students.map(st => ({ st, rec: qResp[st.cardId] || null }));
+    if (questionEnded) {
+      // Sort: correct first (by scanSeq), then wrong (by scanSeq), then blank (by cardId)
+      items.sort((a, b) => {
+        const ra = a.rec ? (a.rec.answer === corL ? 0 : 1) : 2;
+        const rb = b.rec ? (b.rec.answer === corL ? 0 : 1) : 2;
+        if (ra !== rb) return ra - rb;
+        if (a.rec && b.rec) return (a.rec.scanSeq || 999) - (b.rec.scanSeq || 999);
+        return a.st.cardId - b.st.cardId;
+      });
+    } else {
+      // Active scanning: scanned students jump to TOP-LEFT in exact scan order!
+      items.sort((a, b) => {
+        if (a.rec && !b.rec) return -1;
+        if (!a.rec && b.rec) return 1;
+        if (a.rec && b.rec) return (a.rec.scanSeq || 999) - (b.rec.scanSeq || 999);
+        return a.st.cardId - b.st.cardId;
+      });
+    }
+    sbGrid.innerHTML = items.map(({ st, rec }) => {
+      if (questionEnded) {
+        if (rec && rec.answer === corL) {
+          const pts = typeof rec.earnedPoints === 'number' ? rec.earnedPoints : 10;
+          return `<div class="sb-st-chip ended-correct"><span>✓ #${String(st.cardId).padStart(2,'0')} ${escHtml(st.name)}</span><span class="sb-pts-badge">+${pts}p</span></div>`;
+        } else if (rec) {
+          return `<div class="sb-st-chip ended-wrong"><span>#${String(st.cardId).padStart(2,'0')} ${escHtml(st.name)}</span><span class="sb-pts-badge">${rec.answer} · 0p</span></div>`;
+        } else {
+          return `<div class="sb-st-chip ended-blank"><span>#${String(st.cardId).padStart(2,'0')} ${escHtml(st.name)}</span><span class="sb-pts-badge">—</span></div>`;
+        }
+      } else {
+        if (rec) {
+          return `<div class="sb-st-chip scanned"><span>✓ #${String(st.cardId).padStart(2,'0')} ${escHtml(st.name)}</span><span class="sb-pts-badge">Okundu</span></div>`;
+        } else {
+          return `<div class="sb-st-chip"><span>#${String(st.cardId).padStart(2,'0')} ${escHtml(st.name)}</span></div>`;
+        }
+      }
+    }).join('');
+  }
 }
 
 // === QUESTION BANK RENDER ===
@@ -1716,7 +1871,7 @@ function computeReportData() {
       maxPoints += q.points;
       const rec = (sess.responses[q.id] || {})[st.cardId];
       if (!rec) { blank++; }
-      else if (rec.answer === LETTERS[q.correctIndex]) { correct++; points += q.points; }
+      else if (rec.answer === LETTERS[q.correctIndex]) { correct++; points += (typeof rec.earnedPoints === 'number' ? rec.earnedPoints : q.points); }
       else { wrong++; }
     }
     const pct = maxPoints ? Math.round((points / maxPoints) * 100) : 0;
@@ -1991,6 +2146,10 @@ document.getElementById('sb-timer-start').addEventListener('click', toggleQuesti
 document.getElementById('sb-timer-reset').addEventListener('click', () => startQuestionTimer(true));
 document.getElementById('btn-live-timer-toggle').addEventListener('click', toggleQuestionTimer);
 document.getElementById('btn-live-timer-reset').addEventListener('click', () => startQuestionTimer(true));
+document.getElementById('btn-live-timer-add1').addEventListener('click', addOneMinuteTimer);
+document.getElementById('sb-timer-add1').addEventListener('click', addOneMinuteTimer);
+document.getElementById('sb-end-btn').addEventListener('click', endQuestionAnswering);
+document.getElementById('btn-end-answering-live').addEventListener('click', endQuestionAnswering);
 document.getElementById('timer-duration-select').addEventListener('change', e => {
   timerDuration = Number(e.target.value) || 45;
   startQuestionTimer(true);
